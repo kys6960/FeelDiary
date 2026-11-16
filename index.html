@@ -112,7 +112,9 @@ section { padding-block: 88px; }
 /* 날마다 다른 쪽 */
 .pageband { background: var(--paper-2); }
 .page-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
-.page-shot { border-radius: 18px; overflow: hidden; box-shadow: 0 24px 50px -24px #2a273766; max-width: 420px; justify-self: center; }
+.page-fig { margin: 0; justify-self: center; max-width: 440px; }
+.page-shot { border-radius: 14px; box-shadow: 0 24px 50px -24px #2a273766; width: 100%; height: auto; }
+.page-fig figcaption { margin-top: 12px; font-size: .85rem; color: var(--muted); text-align: center; }
 .points { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 18px; }
 .points li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 14px; align-items: start; }
 .points .ic { width: 36px; height: 36px; border-radius: 10px; background: var(--petal-soft); color: var(--petal); display: grid; place-items: center; font-size: 1.1rem; }
@@ -167,7 +169,7 @@ section { padding-block: 88px; }
 .cta img.icon { width: 88px; height: 88px; border-radius: 22px; margin: 0 auto 20px; box-shadow: 0 14px 30px -14px #1f234799; }
 .cta p { color: var(--muted); max-width: 32em; margin: 12px auto 26px; }
 .cta .stores { justify-content: center; }
-.cta .store { background: var(--night); border-color: var(--night); }
+.cta .store { background: var(--night); border-color: color-mix(in srgb, var(--moon) 45%, transparent); }
 footer { padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); font-size: .86rem; color: var(--muted); }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
 footer a { color: var(--muted); }
@@ -254,7 +256,10 @@ footer a { color: var(--muted); }
 
   <section class="pageband">
     <div class="wrap page-grid">
-      <img class="page-shot" src="img/page.webp" alt="FeelDiary 로 꾸민 하루 한 쪽 — 구름 배경지와 창가의 오늘의 창" data-alt="altPage" width="720" height="1280" loading="lazy">
+      <figure class="page-fig">
+        <img class="page-shot" src="img/page.webp" alt="FeelDiary 로 꾸민 하루 한 쪽 — 구름 배경지와 창가의 오늘의 창" data-alt="altPage" width="729" height="1032" loading="lazy">
+        <figcaption data-k="pageCap">자랑 카드로 꺼낸 하루 한 쪽 — 글은 이렇게 흐리게 가려져요.</figcaption>
+      </figure>
       <div>
         <div class="eyebrow" data-k="pageEyebrow">날마다 다른 쪽</div>
         <h2 data-k="pageTitle">오늘의 나에게 어울리는 한 쪽</h2>
@@ -391,6 +396,7 @@ const EN = {
   s1t: 'Pick a mood and the weather', s1p: 'Five faces, four kinds of weather. Skip it if you like — we guess from what you write.',
   s2t: 'Talk or type a few lines', s2p: 'Tap the big mic and talk like you would to a friend. It turns into text on your device. Up to 3 photos.',
   s3t: 'Your page is done', s3p: 'A background, photo spots and handwriting that suit the day, plus a note from Mochi & Dubu.',
+  pageCap: 'A day page taken out as a brag card — your text is blurred like this.',
   pageEyebrow: 'A different page every day', pageTitle: 'A page that fits who you were today',
   p1t: 'Backgrounds that match your mood', p1p: 'Cherry blossoms, cloud walks, morning sun… the paper is chosen to suit the day.',
   p2t: "Today's window comes alive", p2p: 'The view changes with the season and time, and petals, leaves or snow drift by.',
