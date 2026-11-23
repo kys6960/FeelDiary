@@ -6,7 +6,7 @@
 <title>FeelDiary Privacy Policy</title>
 <meta name="description" content="FeelDiary(손쉬운일기) 개인정보 처리방침 · Privacy Policy · プライバシーポリシー">
 <link rel="icon" href="../favicon.png">
-<!-- FeelDiary 개인정보 처리방침 · 11-23 · 원본 글: store/privacy.md 의 휴대 기기 앱 절 — 고치면 원본부터 -->
+<!-- FeelDiary 개인정보 처리방침 · 11-23 · 원본 글: store/privacy.md 의 휴대 기기 앱 절 (한 · 영 · 일) + 15개 언어 번역 build/tmp/privacy18 — 고치면 원본부터 -->
 <style>
 :root { --paper:#fffbf4; --ink:#2a2737; --muted:#6d6780; --line:#e9e1d2; --petal:#d9637f; --night:#1f2347; --moon:#f1d79e; --on-night:#f6f1e6; --on-night-muted:#b9bcd9; }
 @media (prefers-color-scheme: dark) { :root { --paper:#17182c; --ink:#efeaf7; --muted:#a9a4bf; --line:#2e3052; --petal:#ef8aa3; color-scheme: dark; } }
@@ -16,9 +16,10 @@ body { margin:0; background:var(--paper); color:var(--ink); font:400 16px/1.75 "
 .bar .in { max-width:760px; margin:0 auto; padding:0 16px; height:56px; display:flex; align-items:center; gap:12px; }
 .bar a.brand { color:var(--on-night); text-decoration:none; font-weight:700; display:flex; align-items:center; gap:8px; }
 .bar img { width:28px; height:28px; border-radius:7px; }
-.lang { margin-left:auto; display:flex; border:1px solid #ffffff33; border-radius:999px; overflow:hidden; }
-.lang button { appearance:none; border:0; background:transparent; color:var(--on-night-muted); font:500 .82rem inherit; padding:5px 11px; cursor:pointer; }
-.lang button[aria-pressed="true"] { background:var(--moon); color:var(--night); }
+.lang { margin-left:auto; }
+.lang select { appearance:none; border:1px solid #ffffff44; border-radius:999px; background:transparent; color:var(--on-night); font:500 .88rem inherit; padding:6px 30px 6px 14px; cursor:pointer; background-image:linear-gradient(45deg,transparent 50%,var(--moon) 50%),linear-gradient(135deg,var(--moon) 50%,transparent 50%); background-position:calc(100% - 16px) 55%,calc(100% - 11px) 55%; background-size:5px 5px; background-repeat:no-repeat; }
+.lang select option { color:#2a2737; background:#fff; }
+.sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 main { max-width:760px; margin:0 auto; padding:32px 16px 64px; }
 h1 { font-size:1.8rem; line-height:1.3; margin:0 0 6px; }
 .sub { color:var(--muted); margin:0; }
@@ -35,11 +36,28 @@ section + section { margin-top:56px; }
 <body>
 <header class="bar"><div class="in">
   <a class="brand" href="../"><img src="../favicon.png" alt="">FeelDiary</a>
-  <div class="lang" role="group" aria-label="Language">
-    <button type="button" data-l="ko" aria-pressed="true">한국어</button>
-    <button type="button" data-l="en" aria-pressed="false">EN</button>
-    <button type="button" data-l="ja" aria-pressed="false">日本語</button>
-  </div>
+  <label class="lang"><span class="sr">Language</span>
+    <select id="lang" aria-label="Language">
+      <option value="ko">한국어</option>
+      <option value="en">English</option>
+      <option value="ja">日本語</option>
+      <option value="zh">简体中文</option>
+      <option value="zh_Hant">繁體中文</option>
+      <option value="es">Español</option>
+      <option value="pt">Português</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+      <option value="it">Italiano</option>
+      <option value="nl">Nederlands</option>
+      <option value="pl">Polski</option>
+      <option value="ru">Русский</option>
+      <option value="tr">Türkçe</option>
+      <option value="id">Bahasa Indonesia</option>
+      <option value="vi">Tiếng Việt</option>
+      <option value="th">ไทย</option>
+      <option value="hi">हिन्दी</option>
+    </select>
+  </label>
 </div></header>
 <main>
 <section lang="ko" data-l="ko">
@@ -102,20 +120,324 @@ section + section { margin-top:56px; }
   <p class="contact">お問い合わせ: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
   <p class="back"><a href="../">← FeelDiary について</a></p>
 </section>
+<section lang="zh-Hans" data-l="zh">
+  <h1>隐私政策</h1>
+  <p class="sub">FeelDiary 应用 — iPhone · iPad · Android</p>
+  <p class="date">生效日期：2026年11月14日</p>
+  <p>移动应用同样不收集个人信息。不会向应用开发者发送任何内容。应用中没有广告，也没有分析工具。</p>
+  <ol>
+    <li><strong>日记、笔记和照片</strong> — 您写的日记、笔记以及添加的照片仅保存在您设备上的应用空间中。只有当您选择下文所述的备份或分享时，它们才会离开设备。</li>
+    <li><strong>麦克风和语音输入</strong> — 只有在您点按麦克风按钮之后、您说话期间才会使用麦克风。不会保留任何音频文件，只使用转换后的文字。在 iPhone 和 iPad 上使用设备端语音识别，您的声音不会被发送到任何地方。在 Android 上使用手机的默认语音识别服务（例如 Google），应用会请求其离线处理；根据您的设备设置，该服务可能会按照其自身的隐私政策进行处理。</li>
+    <li><strong>照片和相机</strong> — 应用只读取您为添加到日记而选择（或拍摄）的照片，不会读取您的整个照片图库。</li>
+    <li><strong>字体下载</strong> — 当需要应用未内置的字体（手写字体、中文或日文字体等）时，应用会从 GitHub 或 jsDelivr 下载该字体文件。除对该文件的请求外，不会发送任何内容。</li>
+    <li><strong>AI 日记（可选）</strong> — 仅当您在 [AI 日记] 中点按某个 AI 时，您写的文字才会交给该 AI 应用（ChatGPT、Claude 或 Gemini），并按照该公司的隐私政策处理。AI 返回的链接（kys6960.github.io/d/）中的日记内容位于地址中的 # 之后，不会发送到网站服务器。</li>
+    <li><strong>备份（可选）</strong> — 备份只保存在您选择的位置 — Google Drive（使用 Google 登录，权限仅限于访问应用创建的文件）、iCloud 或您设备上的文件夹。备份保存在您自己的账户中，应用开发者无法查看。设备自身的备份（iCloud 设备备份、Android 备份）遵循相应公司的政策。</li>
+    <li><strong>分享和炫耀卡片</strong> — 当您点按 [分享] 时，图片或 PDF 会交给您选择的应用，并适用该应用的政策。</li>
+    <li><strong>购买</strong> — Pro 的购买和恢复购买由 App Store 或 Google Play 处理，并遵循其隐私政策。不会向应用开发者传递任何个人信息。</li>
+    <li><strong>使用数据</strong> — 应用不收集使用数据、广告标识符或位置信息。天气由您自己选择；应用从不请求您的位置。</li>
+    <li><strong>变更</strong> — 如果将来的版本以其他方式使用互联网，本政策会事先说明发送的内容及原因。</li>
+  </ol>
+  <p class="contact">联系方式：<a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← 关于 FeelDiary</a></p>
+</section>
+<section lang="zh-Hant" data-l="zh_Hant">
+  <h1>隱私權政策</h1>
+  <p class="sub">FeelDiary App — iPhone · iPad · Android</p>
+  <p class="date">生效日期：2026年11月14日</p>
+  <p>行動 App 同樣不會蒐集個人資料。不會將任何內容傳送給 App 開發者。App 中沒有廣告，也沒有分析工具。</p>
+  <ol>
+    <li><strong>日記、筆記和照片</strong> — 您寫的日記、筆記以及加入的照片只會儲存在您裝置上的 App 空間中。只有在您選擇下方所述的備份或分享時，它們才會離開裝置。</li>
+    <li><strong>麥克風與語音輸入</strong> — 只有在您點一下麥克風按鈕之後、您說話期間才會使用麥克風。不會保留任何音訊檔案，只會使用轉換後的文字。在 iPhone 和 iPad 上使用裝置端語音辨識，您的聲音絕不會傳送到任何地方。在 Android 上使用手機預設的語音辨識服務（例如 Google），App 會要求其以離線方式處理；視您的裝置設定而定，該服務可能會依其自身的隱私權政策進行處理。</li>
+    <li><strong>照片與相機</strong> — App 只會讀取您為了加入日記而選擇（或拍攝）的照片，不會讀取您的整個照片圖庫。</li>
+    <li><strong>字型下載</strong> — 需要 App 未內建的字型（手寫字型、中文或日文字型等）時，App 會從 GitHub 或 jsDelivr 下載該字型檔。除了對該檔案的請求外，不會傳送任何內容。</li>
+    <li><strong>AI 日記（選用）</strong> — 只有在您於 [AI 日記] 中點選某個 AI 時，您寫的文字才會交給該 AI App（ChatGPT、Claude 或 Gemini），並依該公司的隱私權政策處理。AI 傳回的連結（kys6960.github.io/d/）中的日記內容位於網址的 # 之後，不會傳送到網站伺服器。</li>
+    <li><strong>備份（選用）</strong> — 備份只會儲存在您選擇的位置 — Google Drive（使用 Google 登入，權限僅限存取 App 建立的檔案）、iCloud 或您裝置上的資料夾。備份儲存在您自己的帳戶中，App 開發者無法查看。裝置本身的備份（iCloud 裝置備份、Android 備份）依各該公司的政策辦理。</li>
+    <li><strong>分享與炫耀卡片</strong> — 當您點一下 [分享] 時，圖片或 PDF 會交給您選擇的 App，並適用該 App 的政策。</li>
+    <li><strong>購買</strong> — Pro 的購買與回復購買由 App Store 或 Google Play 處理，並依其隱私權政策辦理。不會將任何個人資料傳遞給 App 開發者。</li>
+    <li><strong>使用資料</strong> — App 不會蒐集使用資料、廣告識別碼或位置資訊。天氣由您自行選擇；App 絕不會要求您的位置。</li>
+    <li><strong>變更</strong> — 若未來版本以其他方式使用網際網路，本政策會事先說明傳送的內容及原因。</li>
+  </ol>
+  <p class="contact">聯絡方式：<a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← 關於 FeelDiary</a></p>
+</section>
+<section lang="es" data-l="es">
+  <h1>Política de privacidad</h1>
+  <p class="sub">App FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Fecha de entrada en vigor: 14 de noviembre de 2026</p>
+  <p>Las apps móviles tampoco recopilan información personal. No se envía nada al desarrollador de la app. No hay anuncios ni herramientas de análisis.</p>
+  <ol>
+    <li><strong>Diario, notas y fotos</strong> — Sus entradas de diario, notas y las fotos que añada se guardan solo en el espacio de la app en su dispositivo. Solo salen del dispositivo cuando usted elige Copia de seguridad o Compartir, descritas más abajo.</li>
+    <li><strong>Micrófono y dictado</strong> — El micrófono solo se usa después de que toque el botón del micrófono, mientras habla. No se guarda ningún archivo de audio; solo se usa el texto resultante. En iPhone y iPad se usa el reconocimiento de voz en el dispositivo y su voz nunca se envía a ningún lugar. En Android se usa el servicio de reconocimiento de voz predeterminado de su teléfono (por ejemplo, Google) y la app le pide que funcione sin conexión; según la configuración de su dispositivo, ese servicio puede procesarla conforme a su propia política de privacidad.</li>
+    <li><strong>Fotos y cámara</strong> — La app solo lee las fotos que usted elige (o toma) para añadirlas a su diario. No lee toda su fototeca.</li>
+    <li><strong>Descarga de fuentes</strong> — Cuando se necesita una fuente que no viene incluida en la app (fuentes manuscritas, fuentes chinas o japonesas, etc.), la app descarga ese archivo de fuente desde GitHub o jsDelivr. No se envía nada más que la solicitud de ese archivo.</li>
+    <li><strong>Diario con IA (opcional)</strong> — Solo cuando toca una IA en [Diario con IA], el texto que escribió se entrega a esa app de IA (ChatGPT, Claude o Gemini) y se procesa conforme a la política de privacidad de esa empresa. El contenido del diario en el enlace que devuelve la IA (kys6960.github.io/d/) va después del # en la dirección y no se envía al servidor del sitio web.</li>
+    <li><strong>Copia de seguridad (opcional)</strong> — Las copias de seguridad se guardan solo donde usted elija — Google Drive (inicio de sesión con Google, con acceso limitado a los archivos creados por la app), iCloud o una carpeta de su dispositivo. Las copias se guardan en su propia cuenta y el desarrollador de la app no puede verlas. La copia de seguridad propia de su dispositivo (copia de iCloud del dispositivo, copia de seguridad de Android) se rige por la política de esa empresa.</li>
+    <li><strong>Compartir y tarjetas para presumir</strong> — Cuando toca [Compartir], la imagen o el PDF se entrega a la app que usted elija, conforme a la política de esa app.</li>
+    <li><strong>Compras</strong> — La compra de Pro y la restauración de compras las gestionan App Store o Google Play conforme a sus políticas de privacidad. No se transmite información personal al desarrollador de la app.</li>
+    <li><strong>Datos de uso</strong> — La app no recopila datos de uso, identificadores publicitarios ni ubicación. Usted mismo elige el tiempo; la app nunca pide su ubicación.</li>
+    <li><strong>Cambios</strong> — Si una versión futura usa internet de otras formas, esta política indicará primero qué se envía y por qué.</li>
+  </ol>
+  <p class="contact">Contacto: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Acerca de FeelDiary</a></p>
+</section>
+<section lang="pt-BR" data-l="pt">
+  <h1>Política de Privacidade</h1>
+  <p class="sub">App FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Data de vigência: 14 de novembro de 2026</p>
+  <p>Os apps para celular também não coletam informações pessoais. Nada é enviado ao desenvolvedor do app. Não há anúncios nem ferramentas de análise.</p>
+  <ol>
+    <li><strong>Diário, notas e fotos</strong> — Suas entradas do diário, notas e as fotos que você adiciona ficam armazenadas apenas no espaço do app no seu dispositivo. Elas só saem do dispositivo quando você escolhe Backup ou Compartilhar, descritos abaixo.</li>
+    <li><strong>Microfone e ditado</strong> — O microfone só é usado depois que você toca no botão do microfone, enquanto você fala. Nenhum arquivo de áudio é mantido; apenas o texto resultante é usado. No iPhone e no iPad, é usado o reconhecimento de fala no próprio dispositivo, e sua voz nunca é enviada a lugar nenhum. No Android, é usado o serviço de reconhecimento de fala padrão do seu celular (por exemplo, o Google), e o app pede que ele funcione offline; dependendo das configurações do seu dispositivo, esse serviço pode processá-la de acordo com a própria política de privacidade.</li>
+    <li><strong>Fotos e câmera</strong> — O app lê apenas as fotos que você escolhe (ou tira) para adicionar ao seu diário. Ele não lê toda a sua galeria de fotos.</li>
+    <li><strong>Download de fontes</strong> — Quando é necessária uma fonte que não vem com o app (fontes manuscritas, fontes chinesas ou japonesas etc.), o app baixa esse arquivo de fonte do GitHub ou do jsDelivr. Nada é enviado além da solicitação desse arquivo.</li>
+    <li><strong>Diário com IA (opcional)</strong> — Somente quando você toca em uma IA em [Diário com IA], o texto que você escreveu é passado para esse app de IA (ChatGPT, Claude ou Gemini) e processado de acordo com a política de privacidade dessa empresa. O conteúdo do diário no link que a IA retorna (kys6960.github.io/d/) fica depois do # no endereço e não é enviado ao servidor do site.</li>
+    <li><strong>Backup (opcional)</strong> — Os backups são salvos somente onde você escolher — Google Drive (login com o Google, com acesso limitado aos arquivos criados pelo app), iCloud ou uma pasta no seu dispositivo. Os backups ficam armazenados na sua própria conta, e o desenvolvedor do app não pode vê-los. O backup do próprio dispositivo (backup do dispositivo no iCloud, backup do Android) segue a política da respectiva empresa.</li>
+    <li><strong>Compartilhar e cards para mostrar</strong> — Quando você toca em [Compartilhar], a imagem ou o PDF é passado para o app que você escolher, de acordo com a política desse app.</li>
+    <li><strong>Compras</strong> — A compra do Pro e a restauração de compras são feitas pela App Store ou pelo Google Play, de acordo com as respectivas políticas de privacidade. Nenhuma informação pessoal é repassada ao desenvolvedor do app.</li>
+    <li><strong>Dados de uso</strong> — O app não coleta dados de uso, identificadores de publicidade nem localização. Você mesmo escolhe o clima; o app nunca pede sua localização.</li>
+    <li><strong>Alterações</strong> — Se uma versão futura usar a internet de outras formas, esta política informará antes o que é enviado e por quê.</li>
+  </ol>
+  <p class="contact">Contato: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Sobre o FeelDiary</a></p>
+</section>
+<section lang="fr" data-l="fr">
+  <h1>Politique de confidentialité</h1>
+  <p class="sub">Application FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Date d’entrée en vigueur : 14 novembre 2026</p>
+  <p>Les applications mobiles ne collectent pas non plus de données personnelles. Rien n’est envoyé au développeur de l’application. Il n’y a ni publicité ni outil d’analyse.</p>
+  <ol>
+    <li><strong>Journal, notes et photos</strong> — Vos entrées de journal, vos notes et les photos que vous ajoutez sont enregistrées uniquement dans l’espace de l’application sur votre appareil. Elles ne quittent l’appareil que lorsque vous choisissez la Sauvegarde ou le Partage décrits ci-dessous.</li>
+    <li><strong>Micro et dictée</strong> — Le micro n’est utilisé qu’après que vous avez touché le bouton du micro, pendant que vous parlez. Aucun fichier audio n’est conservé ; seul le texte obtenu est utilisé. Sur iPhone et iPad, la reconnaissance vocale sur l’appareil est utilisée et votre voix n’est jamais envoyée nulle part. Sur Android, le service de reconnaissance vocale par défaut de votre téléphone (par exemple Google) est utilisé et l’application lui demande de fonctionner hors ligne ; selon les réglages de votre appareil, ce service peut la traiter conformément à sa propre politique de confidentialité.</li>
+    <li><strong>Photos et appareil photo</strong> — L’application lit uniquement les photos que vous choisissez (ou prenez) pour les ajouter à votre journal. Elle ne lit pas l’ensemble de votre photothèque.</li>
+    <li><strong>Téléchargement de polices</strong> — Lorsqu’une police non incluse dans l’application est nécessaire (polices manuscrites, polices chinoises ou japonaises, etc.), l’application télécharge ce fichier de police depuis GitHub ou jsDelivr. Rien d’autre que la demande de ce fichier n’est envoyé.</li>
+    <li><strong>Journal IA (facultatif)</strong> — Uniquement lorsque vous touchez une IA dans [Journal IA], le texte que vous avez écrit est transmis à cette application d’IA (ChatGPT, Claude ou Gemini) et traité selon la politique de confidentialité de cette entreprise. Le contenu du journal dans le lien renvoyé par l’IA (kys6960.github.io/d/) se trouve après le # dans l’adresse et n’est pas envoyé au serveur du site web.</li>
+    <li><strong>Sauvegarde (facultative)</strong> — Les sauvegardes sont enregistrées uniquement à l’endroit que vous choisissez — Google Drive (connexion Google, avec un accès limité aux fichiers créés par l’application), iCloud ou un dossier sur votre appareil. Les sauvegardes sont stockées dans votre propre compte et le développeur de l’application ne peut pas les voir. La sauvegarde propre à votre appareil (sauvegarde iCloud de l’appareil, sauvegarde Android) relève de la politique de l’entreprise concernée.</li>
+    <li><strong>Partage et cartes à montrer</strong> — Lorsque vous touchez [Partager], l’image ou le PDF est transmis à l’application que vous choisissez, selon la politique de cette application.</li>
+    <li><strong>Achats</strong> — L’achat de Pro et la restauration des achats sont gérés par l’App Store ou Google Play selon leurs politiques de confidentialité. Aucune donnée personnelle n’est transmise au développeur de l’application.</li>
+    <li><strong>Données d’utilisation</strong> — L’application ne collecte ni données d’utilisation, ni identifiants publicitaires, ni localisation. Vous choisissez vous-même la météo ; l’application ne demande jamais votre position.</li>
+    <li><strong>Modifications</strong> — Si une version future utilise Internet d’une autre manière, cette politique indiquera d’abord ce qui est envoyé et pourquoi.</li>
+  </ol>
+  <p class="contact">Contact : <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← À propos de FeelDiary</a></p>
+</section>
+<section lang="de" data-l="de">
+  <h1>Datenschutzerklärung</h1>
+  <p class="sub">FeelDiary-App — iPhone · iPad · Android</p>
+  <p class="date">Gültig ab: 14. November 2026</p>
+  <p>Auch die mobilen Apps erheben keine personenbezogenen Daten. An den Entwickler der App wird nichts übermittelt. Es gibt keine Werbung und keine Analysetools.</p>
+  <ol>
+    <li><strong>Tagebuch, Notizen und Fotos</strong> — Ihre Tagebucheinträge, Notizen und die Fotos, die Sie hinzufügen, werden nur im Speicherbereich der App auf Ihrem Gerät gespeichert. Sie verlassen das Gerät nur, wenn Sie die unten beschriebene Sicherung oder das Teilen wählen.</li>
+    <li><strong>Mikrofon und Diktieren</strong> — Das Mikrofon wird erst verwendet, nachdem Sie auf die Mikrofontaste getippt haben, und nur, solange Sie sprechen. Es wird keine Audiodatei gespeichert; verwendet wird nur der daraus erkannte Text. Auf iPhone und iPad wird die Spracherkennung auf dem Gerät verwendet, und Ihre Stimme wird nirgendwohin gesendet. Unter Android wird der Standard-Spracherkennungsdienst Ihres Telefons (zum Beispiel Google) verwendet, und die App fordert ihn auf, offline zu arbeiten; je nach Ihren Geräteeinstellungen kann dieser Dienst die Daten gemäß seiner eigenen Datenschutzerklärung verarbeiten.</li>
+    <li><strong>Fotos und Kamera</strong> — Die App liest nur die Fotos, die Sie auswählen (oder aufnehmen), um sie Ihrem Tagebuch hinzuzufügen. Sie liest nicht Ihre gesamte Fotomediathek.</li>
+    <li><strong>Herunterladen von Schriftarten</strong> — Wenn eine Schriftart benötigt wird, die nicht in der App enthalten ist (Handschrift-Schriftarten, chinesische oder japanische Schriftarten usw.), lädt die App diese Schriftdatei von GitHub oder jsDelivr herunter. Außer der Anfrage nach dieser Datei wird nichts gesendet.</li>
+    <li><strong>KI-Tagebuch (optional)</strong> — Nur wenn Sie unter [KI-Tagebuch] auf eine KI tippen, wird der von Ihnen geschriebene Text an diese KI-App (ChatGPT, Claude oder Gemini) übergeben und gemäß der Datenschutzerklärung des jeweiligen Unternehmens verarbeitet. Der Tagebuchinhalt in dem Link, den die KI zurückgibt (kys6960.github.io/d/), steht in der Adresse hinter dem # und wird nicht an den Server der Website gesendet.</li>
+    <li><strong>Sicherung (optional)</strong> — Sicherungen werden nur dort gespeichert, wo Sie es wählen — Google Drive (Anmeldung mit Google, Zugriff beschränkt auf von der App erstellte Dateien), iCloud oder ein Ordner auf Ihrem Gerät. Sicherungen werden in Ihrem eigenen Konto gespeichert, und der Entwickler der App kann sie nicht einsehen. Für die geräteeigene Sicherung (iCloud-Gerätebackup, Android-Sicherung) gilt die Richtlinie des jeweiligen Unternehmens.</li>
+    <li><strong>Teilen und Vorzeigekarten</strong> — Wenn Sie auf [Teilen] tippen, wird das Bild oder PDF an die von Ihnen gewählte App übergeben; es gilt die Richtlinie dieser App.</li>
+    <li><strong>Käufe</strong> — Der Kauf von Pro und die Wiederherstellung von Käufen werden vom App Store oder von Google Play gemäß deren Datenschutzerklärungen abgewickelt. Es werden keine personenbezogenen Daten an den Entwickler der App weitergegeben.</li>
+    <li><strong>Nutzungsdaten</strong> — Die App erhebt keine Nutzungsdaten, Werbe-IDs oder Standortdaten. Das Wetter wählen Sie selbst; die App fragt nie nach Ihrem Standort.</li>
+    <li><strong>Änderungen</strong> — Falls eine künftige Version das Internet auf andere Weise nutzt, wird in dieser Erklärung vorher angegeben, was gesendet wird und warum.</li>
+  </ol>
+  <p class="contact">Kontakt: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Über FeelDiary</a></p>
+</section>
+<section lang="it" data-l="it">
+  <h1>Informativa sulla privacy</h1>
+  <p class="sub">App FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Data di entrata in vigore: 14 novembre 2026</p>
+  <p>Anche le app per dispositivi mobili non raccolgono dati personali. Nulla viene inviato allo sviluppatore dell’app. Non ci sono pubblicità né strumenti di analisi.</p>
+  <ol>
+    <li><strong>Diario, note e foto</strong> — Le voci del diario, le note e le foto che aggiunge vengono salvate solo nello spazio dell’app sul Suo dispositivo. Escono dal dispositivo solo quando sceglie il Backup o la Condivisione descritti di seguito.</li>
+    <li><strong>Microfono e dettatura</strong> — Il microfono viene usato solo dopo che ha toccato il pulsante del microfono, mentre parla. Nessun file audio viene conservato; viene usato solo il testo risultante. Su iPhone e iPad viene usato il riconoscimento vocale sul dispositivo e la Sua voce non viene mai inviata altrove. Su Android viene usato il servizio di riconoscimento vocale predefinito del telefono (ad esempio Google) e l’app gli chiede di funzionare offline; a seconda delle impostazioni del dispositivo, tale servizio può trattarla secondo la propria informativa sulla privacy.</li>
+    <li><strong>Foto e fotocamera</strong> — L’app legge solo le foto che sceglie (o scatta) per aggiungerle al diario. Non legge l’intera libreria di foto.</li>
+    <li><strong>Download dei font</strong> — Quando serve un font non incluso nell’app (font in stile scrittura a mano, font cinesi o giapponesi, ecc.), l’app scarica il relativo file da GitHub o jsDelivr. Non viene inviato nulla oltre alla richiesta di quel file.</li>
+    <li><strong>Diario IA (facoltativo)</strong> — Solo quando tocca un’IA in [Diario IA], il testo che ha scritto viene passato a quell’app di IA (ChatGPT, Claude o Gemini) e trattato secondo l’informativa sulla privacy di quell’azienda. Il contenuto del diario nel link restituito dall’IA (kys6960.github.io/d/) si trova dopo il # nell’indirizzo e non viene inviato al server del sito web.</li>
+    <li><strong>Backup (facoltativo)</strong> — I backup vengono salvati solo dove sceglie Lei — Google Drive (accesso con Google, con autorizzazione limitata ai file creati dall’app), iCloud o una cartella sul dispositivo. I backup sono archiviati nel Suo account e lo sviluppatore dell’app non può vederli. Il backup del dispositivo stesso (backup iCloud del dispositivo, backup Android) segue l’informativa dell’azienda interessata.</li>
+    <li><strong>Condivisione e schede da mostrare</strong> — Quando tocca [Condividi], l’immagine o il PDF viene passato all’app che sceglie, secondo l’informativa di quell’app.</li>
+    <li><strong>Acquisti</strong> — L’acquisto di Pro e il ripristino degli acquisti sono gestiti dall’App Store o da Google Play secondo le rispettive informative sulla privacy. Nessun dato personale viene trasmesso allo sviluppatore dell’app.</li>
+    <li><strong>Dati di utilizzo</strong> — L’app non raccoglie dati di utilizzo, identificatori pubblicitari né la posizione. Il meteo lo sceglie Lei; l’app non chiede mai la Sua posizione.</li>
+    <li><strong>Modifiche</strong> — Se una versione futura userà Internet in altri modi, questa informativa indicherà prima che cosa viene inviato e perché.</li>
+  </ol>
+  <p class="contact">Contatti: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Informazioni su FeelDiary</a></p>
+</section>
+<section lang="nl" data-l="nl">
+  <h1>Privacybeleid</h1>
+  <p class="sub">FeelDiary-app — iPhone · iPad · Android</p>
+  <p class="date">Ingangsdatum: 14 november 2026</p>
+  <p>Ook de mobiele apps verzamelen geen persoonsgegevens. Er wordt niets naar de ontwikkelaar van de app gestuurd. Er zijn geen advertenties en geen analysetools.</p>
+  <ol>
+    <li><strong>Dagboek, notities en foto’s</strong> — Uw dagboekberichten, notities en de foto’s die u toevoegt, worden alleen opgeslagen in de ruimte van de app op uw apparaat. Ze verlaten het apparaat alleen als u kiest voor de hieronder beschreven Back-up of Delen.</li>
+    <li><strong>Microfoon en dicteren</strong> — De microfoon wordt pas gebruikt nadat u op de microfoonknop hebt getikt, en alleen terwijl u spreekt. Er wordt geen audiobestand bewaard; alleen de resulterende tekst wordt gebruikt. Op iPhone en iPad wordt spraakherkenning op het apparaat gebruikt en wordt uw stem nergens naartoe gestuurd. Op Android wordt de standaard spraakherkenningsdienst van uw telefoon (bijvoorbeeld Google) gebruikt en vraagt de app deze offline te werken; afhankelijk van uw apparaatinstellingen kan die dienst de gegevens verwerken volgens zijn eigen privacybeleid.</li>
+    <li><strong>Foto’s en camera</strong> — De app leest alleen de foto’s die u kiest (of maakt) om aan uw dagboek toe te voegen. De app leest niet uw hele fotobibliotheek.</li>
+    <li><strong>Lettertypen downloaden</strong> — Als een lettertype nodig is dat niet in de app zit (handschriftlettertypen, Chinese of Japanse lettertypen enz.), downloadt de app dat lettertypebestand van GitHub of jsDelivr. Er wordt niets anders verstuurd dan het verzoek om dat bestand.</li>
+    <li><strong>AI-dagboek (optioneel)</strong> — Alleen als u in [AI-dagboek] op een AI tikt, wordt de tekst die u hebt geschreven doorgegeven aan die AI-app (ChatGPT, Claude of Gemini) en verwerkt volgens het privacybeleid van dat bedrijf. De dagboekinhoud in de link die de AI teruggeeft (kys6960.github.io/d/) staat na het # in het adres en wordt niet naar de server van de website gestuurd.</li>
+    <li><strong>Back-up (optioneel)</strong> — Back-ups worden alleen opgeslagen op de plek die u kiest — Google Drive (inloggen met Google, met toegang beperkt tot bestanden die de app heeft gemaakt), iCloud of een map op uw apparaat. Back-ups worden in uw eigen account opgeslagen en de ontwikkelaar van de app kan ze niet zien. Voor de eigen back-up van uw apparaat (iCloud-apparaatback-up, Android-back-up) geldt het beleid van het betreffende bedrijf.</li>
+    <li><strong>Delen en pronkkaarten</strong> — Als u op [Delen] tikt, wordt de afbeelding of pdf doorgegeven aan de app die u kiest, volgens het beleid van die app.</li>
+    <li><strong>Aankopen</strong> — Het kopen van Pro en het herstellen van aankopen worden afgehandeld door de App Store of Google Play volgens hun privacybeleid. Er worden geen persoonsgegevens aan de ontwikkelaar van de app doorgegeven.</li>
+    <li><strong>Gebruiksgegevens</strong> — De app verzamelt geen gebruiksgegevens, advertentie-ID’s of locatiegegevens. U kiest het weer zelf; de app vraagt nooit om uw locatie.</li>
+    <li><strong>Wijzigingen</strong> — Als een toekomstige versie internet op een andere manier gebruikt, vermeldt dit beleid eerst wat er wordt verstuurd en waarom.</li>
+  </ol>
+  <p class="contact">Contact: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Over FeelDiary</a></p>
+</section>
+<section lang="pl" data-l="pl">
+  <h1>Polityka prywatności</h1>
+  <p class="sub">Aplikacja FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Data wejścia w życie: 14 listopada 2026 r.</p>
+  <p>Aplikacje mobilne również nie zbierają danych osobowych. Nic nie jest wysyłane do twórcy aplikacji. Nie ma w nich reklam ani narzędzi analitycznych.</p>
+  <ol>
+    <li><strong>Dziennik, notatki i zdjęcia</strong> — Twoje wpisy w dzienniku, notatki i dodane zdjęcia są przechowywane wyłącznie w przestrzeni aplikacji na Twoim urządzeniu. Opuszczają urządzenie tylko wtedy, gdy wybierzesz opisaną poniżej kopię zapasową lub udostępnianie.</li>
+    <li><strong>Mikrofon i dyktowanie</strong> — Mikrofon jest używany dopiero po dotknięciu przycisku mikrofonu i tylko wtedy, gdy mówisz. Żaden plik audio nie jest zachowywany; używany jest tylko powstały tekst. Na urządzeniach iPhone i iPad używane jest rozpoznawanie mowy na urządzeniu, a Twój głos nigdy nie jest nigdzie wysyłany. W systemie Android używana jest domyślna usługa rozpoznawania mowy w telefonie (na przykład Google), a aplikacja prosi ją o działanie offline; w zależności od ustawień urządzenia usługa ta może przetwarzać dane zgodnie z własną polityką prywatności.</li>
+    <li><strong>Zdjęcia i aparat</strong> — Aplikacja odczytuje tylko zdjęcia, które wybierzesz (lub zrobisz), aby dodać je do dziennika. Nie odczytuje całej Twojej biblioteki zdjęć.</li>
+    <li><strong>Pobieranie czcionek</strong> — Gdy potrzebna jest czcionka, której nie ma w aplikacji (czcionki odręczne, czcionki chińskie lub japońskie itp.), aplikacja pobiera plik tej czcionki z GitHub lub jsDelivr. Poza żądaniem tego pliku nic nie jest wysyłane.</li>
+    <li><strong>Dziennik z AI (opcjonalnie)</strong> — Tylko gdy dotkniesz wybranej AI w [Dziennik z AI], napisany przez Ciebie tekst jest przekazywany do tej aplikacji AI (ChatGPT, Claude lub Gemini) i przetwarzany zgodnie z polityką prywatności danej firmy. Treść dziennika w linku zwróconym przez AI (kys6960.github.io/d/) znajduje się po znaku # w adresie i nie jest wysyłana na serwer strony internetowej.</li>
+    <li><strong>Kopia zapasowa (opcjonalnie)</strong> — Kopie zapasowe są zapisywane tylko tam, gdzie wybierzesz — na Google Drive (logowanie przez Google, z dostępem ograniczonym do plików utworzonych przez aplikację), w iCloud lub w folderze na urządzeniu. Kopie zapasowe są przechowywane na Twoim własnym koncie, a twórca aplikacji nie ma do nich wglądu. Własna kopia zapasowa urządzenia (kopia zapasowa urządzenia w iCloud, kopia zapasowa Android) podlega zasadom danej firmy.</li>
+    <li><strong>Udostępnianie i karty do pochwalenia się</strong> — Gdy dotkniesz [Udostępnij], obraz lub plik PDF jest przekazywany do wybranej przez Ciebie aplikacji zgodnie z jej zasadami.</li>
+    <li><strong>Zakupy</strong> — Zakup wersji Pro i przywracanie zakupów obsługuje App Store lub Google Play zgodnie ze swoimi politykami prywatności. Żadne dane osobowe nie są przekazywane twórcy aplikacji.</li>
+    <li><strong>Dane o użytkowaniu</strong> — Aplikacja nie zbiera danych o użytkowaniu, identyfikatorów reklamowych ani lokalizacji. Pogodę wybierasz samodzielnie; aplikacja nigdy nie prosi o Twoją lokalizację.</li>
+    <li><strong>Zmiany</strong> — Jeśli przyszła wersja będzie korzystać z internetu w inny sposób, ta polityka najpierw określi, co jest wysyłane i dlaczego.</li>
+  </ol>
+  <p class="contact">Kontakt: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← O aplikacji FeelDiary</a></p>
+</section>
+<section lang="ru" data-l="ru">
+  <h1>Политика конфиденциальности</h1>
+  <p class="sub">Приложение FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Дата вступления в силу: 14 ноября 2026 г.</p>
+  <p>Мобильные приложения также не собирают персональные данные. Разработчику приложения ничего не передаётся. В приложениях нет рекламы и инструментов аналитики.</p>
+  <ol>
+    <li><strong>Дневник, заметки и фото</strong> — Ваши записи в дневнике, заметки и добавленные вами фото хранятся только в пространстве приложения на вашем устройстве. Они покидают устройство только тогда, когда вы выбираете описанные ниже резервное копирование или функцию «Поделиться».</li>
+    <li><strong>Микрофон и диктовка</strong> — Микрофон используется только после того, как вы нажмёте кнопку микрофона, и только пока вы говорите. Аудиофайлы не сохраняются; используется только полученный текст. На iPhone и iPad используется распознавание речи на устройстве, и ваш голос никуда не отправляется. На Android используется стандартная служба распознавания речи вашего телефона (например, Google), и приложение просит её работать офлайн; в зависимости от настроек устройства эта служба может обрабатывать данные в соответствии со своей политикой конфиденциальности.</li>
+    <li><strong>Фото и камера</strong> — Приложение читает только те фото, которые вы выбираете (или снимаете), чтобы добавить их в дневник. Оно не читает всю вашу медиатеку.</li>
+    <li><strong>Загрузка шрифтов</strong> — Когда нужен шрифт, которого нет в приложении (рукописные шрифты, китайские или японские шрифты и т. п.), приложение загружает файл этого шрифта с GitHub или jsDelivr. Кроме запроса этого файла, ничего не отправляется.</li>
+    <li><strong>ИИ-дневник (по желанию)</strong> — Только когда вы нажимаете на ИИ в разделе [ИИ-дневник], написанный вами текст передаётся в это приложение ИИ (ChatGPT, Claude или Gemini) и обрабатывается в соответствии с политикой конфиденциальности этой компании. Содержимое дневника в ссылке, которую возвращает ИИ (kys6960.github.io/d/), находится после символа # в адресе и не отправляется на сервер сайта.</li>
+    <li><strong>Резервное копирование (по желанию)</strong> — Резервные копии сохраняются только туда, куда вы выберете, — в Google Drive (вход через Google, доступ только к файлам, созданным приложением), в iCloud или в папку на вашем устройстве. Резервные копии хранятся в вашей собственной учётной записи, и разработчик приложения не может их видеть. На собственное резервное копирование устройства (резервная копия устройства в iCloud, резервное копирование Android) распространяется политика соответствующей компании.</li>
+    <li><strong>«Поделиться» и карточки, чтобы похвастаться</strong> — Когда вы нажимаете [Поделиться], изображение или PDF передаётся в выбранное вами приложение в соответствии с его политикой.</li>
+    <li><strong>Покупки</strong> — Покупка Pro и восстановление покупок выполняются через App Store или Google Play в соответствии с их политиками конфиденциальности. Никакие персональные данные не передаются разработчику приложения.</li>
+    <li><strong>Данные об использовании</strong> — Приложение не собирает данные об использовании, рекламные идентификаторы и сведения о местоположении. Погоду вы выбираете сами; приложение никогда не запрашивает ваше местоположение.</li>
+    <li><strong>Изменения</strong> — Если будущая версия будет использовать интернет иным образом, в этой политике заранее будет указано, что отправляется и зачем.</li>
+  </ol>
+  <p class="contact">Контакты: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← О FeelDiary</a></p>
+</section>
+<section lang="tr" data-l="tr">
+  <h1>Gizlilik Politikası</h1>
+  <p class="sub">FeelDiary uygulaması — iPhone · iPad · Android</p>
+  <p class="date">Yürürlük tarihi: 14 Kasım 2026</p>
+  <p>Mobil uygulamalar da kişisel veri toplamaz. Uygulamanın geliştiricisine hiçbir şey gönderilmez. Reklam ve analiz aracı bulunmaz.</p>
+  <ol>
+    <li><strong>Günlük, notlar ve fotoğraflar</strong> — Günlük kayıtlarınız, notlarınız ve eklediğiniz fotoğraflar yalnızca cihazınızdaki uygulama alanında saklanır. Bunlar yalnızca aşağıda açıklanan Yedekleme veya Paylaşma seçeneğini seçtiğinizde cihazdan çıkar.</li>
+    <li><strong>Mikrofon ve dikte</strong> — Mikrofon yalnızca mikrofon düğmesine dokunduktan sonra, siz konuşurken kullanılır. Hiçbir ses dosyası saklanmaz; yalnızca ortaya çıkan metin kullanılır. iPhone ve iPad'de cihaz üzerinde konuşma tanıma kullanılır ve sesiniz hiçbir yere gönderilmez. Android'de telefonunuzun varsayılan konuşma tanıma hizmeti (örneğin Google) kullanılır ve uygulama bu hizmetten çevrimdışı çalışmasını ister; cihaz ayarlarınıza bağlı olarak bu hizmet verileri kendi gizlilik politikasına göre işleyebilir.</li>
+    <li><strong>Fotoğraflar ve kamera</strong> — Uygulama yalnızca günlüğünüze eklemek için seçtiğiniz (veya çektiğiniz) fotoğrafları okur. Fotoğraf arşivinizin tamamını okumaz.</li>
+    <li><strong>Yazı tipi indirme</strong> — Uygulamada bulunmayan bir yazı tipi gerektiğinde (el yazısı yazı tipleri, Çince veya Japonca yazı tipleri vb.), uygulama o yazı tipi dosyasını GitHub veya jsDelivr'den indirir. Bu dosyanın isteği dışında hiçbir şey gönderilmez.</li>
+    <li><strong>Yapay zekâ günlüğü (isteğe bağlı)</strong> — Yalnızca [Yapay zekâ günlüğü] içinde bir yapay zekâya dokunduğunuzda, yazdığınız metin o yapay zekâ uygulamasına (ChatGPT, Claude veya Gemini) aktarılır ve o şirketin gizlilik politikasına göre işlenir. Yapay zekânın döndürdüğü bağlantıdaki (kys6960.github.io/d/) günlük içeriği adreste # işaretinden sonra yer alır ve web sitesinin sunucusuna gönderilmez.</li>
+    <li><strong>Yedekleme (isteğe bağlı)</strong> — Yedekler yalnızca seçtiğiniz yere kaydedilir — Google Drive (Google ile oturum açma; erişim yalnızca uygulamanın oluşturduğu dosyalarla sınırlıdır), iCloud veya cihazınızdaki bir klasör. Yedekler kendi hesabınızda saklanır ve uygulamanın geliştiricisi bunları göremez. Cihazınızın kendi yedeklemesi (iCloud cihaz yedeklemesi, Android yedeklemesi) ilgili şirketin politikasına tabidir.</li>
+    <li><strong>Paylaşma ve gösteriş kartları</strong> — [Paylaş] düğmesine dokunduğunuzda resim veya PDF, seçtiğiniz uygulamaya aktarılır ve o uygulamanın politikası geçerli olur.</li>
+    <li><strong>Satın alımlar</strong> — Pro satın alma ve satın alımları geri yükleme işlemleri, App Store veya Google Play tarafından kendi gizlilik politikalarına göre yürütülür. Uygulamanın geliştiricisine hiçbir kişisel veri aktarılmaz.</li>
+    <li><strong>Kullanım verileri</strong> — Uygulama kullanım verilerini, reklam kimliklerini veya konum bilgisini toplamaz. Hava durumunu kendiniz seçersiniz; uygulama hiçbir zaman konumunuzu istemez.</li>
+    <li><strong>Değişiklikler</strong> — Gelecekteki bir sürüm interneti başka şekillerde kullanırsa, bu politika önce neyin gönderildiğini ve nedenini belirtecektir.</li>
+  </ol>
+  <p class="contact">İletişim: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← FeelDiary hakkında</a></p>
+</section>
+<section lang="id" data-l="id">
+  <h1>Kebijakan Privasi</h1>
+  <p class="sub">Aplikasi FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Tanggal berlaku: 14 November 2026</p>
+  <p>Aplikasi seluler juga tidak mengumpulkan informasi pribadi. Tidak ada apa pun yang dikirim ke pengembang aplikasi. Tidak ada iklan dan tidak ada alat analitik.</p>
+  <ol>
+    <li><strong>Buku harian, catatan, dan foto</strong> — Entri buku harian, catatan, dan foto yang Anda tambahkan hanya disimpan di ruang aplikasi pada perangkat Anda. Semua itu hanya keluar dari perangkat saat Anda memilih Cadangan atau Bagikan yang dijelaskan di bawah.</li>
+    <li><strong>Mikrofon dan dikte</strong> — Mikrofon hanya digunakan setelah Anda mengetuk tombol mikrofon, selama Anda berbicara. Tidak ada file audio yang disimpan; hanya teks hasilnya yang digunakan. Di iPhone dan iPad, pengenalan suara di perangkat digunakan dan suara Anda tidak pernah dikirim ke mana pun. Di Android, layanan pengenalan suara bawaan ponsel Anda (misalnya, Google) digunakan dan aplikasi memintanya bekerja secara offline; tergantung pada pengaturan perangkat Anda, layanan tersebut dapat memprosesnya sesuai kebijakan privasinya sendiri.</li>
+    <li><strong>Foto dan kamera</strong> — Aplikasi hanya membaca foto yang Anda pilih (atau ambil) untuk ditambahkan ke buku harian. Aplikasi tidak membaca seluruh galeri foto Anda.</li>
+    <li><strong>Unduhan font</strong> — Saat diperlukan font yang tidak disertakan dalam aplikasi (font tulisan tangan, font Tionghoa atau Jepang, dll.), aplikasi mengunduh file font tersebut dari GitHub atau jsDelivr. Tidak ada yang dikirim selain permintaan untuk file tersebut.</li>
+    <li><strong>Buku harian AI (opsional)</strong> — Hanya saat Anda mengetuk sebuah AI di [Buku harian AI], teks yang Anda tulis diserahkan ke aplikasi AI tersebut (ChatGPT, Claude, atau Gemini) dan diproses sesuai kebijakan privasi perusahaan itu. Isi buku harian dalam tautan yang dikembalikan AI (kys6960.github.io/d/) terletak setelah tanda # di alamat dan tidak dikirim ke server situs web.</li>
+    <li><strong>Cadangan (opsional)</strong> — Cadangan hanya disimpan di tempat yang Anda pilih — Google Drive (masuk dengan Google, dengan akses terbatas pada file yang dibuat aplikasi), iCloud, atau folder di perangkat Anda. Cadangan disimpan di akun Anda sendiri dan pengembang aplikasi tidak dapat melihatnya. Cadangan bawaan perangkat Anda (cadangan perangkat iCloud, cadangan Android) mengikuti kebijakan perusahaan yang bersangkutan.</li>
+    <li><strong>Bagikan dan kartu pamer</strong> — Saat Anda mengetuk [Bagikan], gambar atau PDF diserahkan ke aplikasi yang Anda pilih, sesuai kebijakan aplikasi tersebut.</li>
+    <li><strong>Pembelian</strong> — Pembelian Pro dan pemulihan pembelian ditangani oleh App Store atau Google Play sesuai kebijakan privasi masing-masing. Tidak ada informasi pribadi yang diteruskan ke pengembang aplikasi.</li>
+    <li><strong>Data penggunaan</strong> — Aplikasi tidak mengumpulkan data penggunaan, ID iklan, atau lokasi. Anda sendiri yang memilih cuaca; aplikasi tidak pernah meminta lokasi Anda.</li>
+    <li><strong>Perubahan</strong> — Jika versi mendatang menggunakan internet dengan cara lain, kebijakan ini akan terlebih dahulu menjelaskan apa yang dikirim dan alasannya.</li>
+  </ol>
+  <p class="contact">Kontak: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Tentang FeelDiary</a></p>
+</section>
+<section lang="vi" data-l="vi">
+  <h1>Chính sách quyền riêng tư</h1>
+  <p class="sub">Ứng dụng FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">Ngày có hiệu lực: 14 tháng 11 năm 2026</p>
+  <p>Các ứng dụng di động cũng không thu thập thông tin cá nhân. Không có gì được gửi đến nhà phát triển ứng dụng. Ứng dụng không có quảng cáo và không có công cụ phân tích.</p>
+  <ol>
+    <li><strong>Nhật ký, ghi chú và ảnh</strong> — Các trang nhật ký, ghi chú và ảnh bạn thêm vào chỉ được lưu trong vùng lưu trữ của ứng dụng trên thiết bị của bạn. Chúng chỉ rời khỏi thiết bị khi bạn chọn Sao lưu hoặc Chia sẻ được mô tả bên dưới.</li>
+    <li><strong>Micrô và nhập bằng giọng nói</strong> — Micrô chỉ được dùng sau khi bạn chạm vào nút micrô, trong lúc bạn nói. Không có tệp âm thanh nào được lưu lại; chỉ văn bản thu được mới được sử dụng. Trên iPhone và iPad, tính năng nhận dạng giọng nói trên thiết bị được sử dụng và giọng nói của bạn không bao giờ được gửi đi đâu. Trên Android, dịch vụ nhận dạng giọng nói mặc định của điện thoại (ví dụ: Google) được sử dụng và ứng dụng yêu cầu dịch vụ đó hoạt động ngoại tuyến; tùy theo cài đặt thiết bị của bạn, dịch vụ đó có thể xử lý dữ liệu theo chính sách quyền riêng tư của riêng mình.</li>
+    <li><strong>Ảnh và máy ảnh</strong> — Ứng dụng chỉ đọc những ảnh bạn chọn (hoặc chụp) để thêm vào nhật ký. Ứng dụng không đọc toàn bộ thư viện ảnh của bạn.</li>
+    <li><strong>Tải phông chữ</strong> — Khi cần một phông chữ không có sẵn trong ứng dụng (phông chữ viết tay, phông chữ tiếng Trung hoặc tiếng Nhật, v.v.), ứng dụng sẽ tải tệp phông chữ đó từ GitHub hoặc jsDelivr. Ngoài yêu cầu tải tệp đó, không có gì khác được gửi đi.</li>
+    <li><strong>Nhật ký AI (tùy chọn)</strong> — Chỉ khi bạn chạm vào một AI trong [Nhật ký AI], văn bản bạn đã viết mới được chuyển đến ứng dụng AI đó (ChatGPT, Claude hoặc Gemini) và được xử lý theo chính sách quyền riêng tư của công ty đó. Nội dung nhật ký trong liên kết mà AI trả về (kys6960.github.io/d/) nằm sau dấu # trong địa chỉ và không được gửi đến máy chủ của trang web.</li>
+    <li><strong>Sao lưu (tùy chọn)</strong> — Bản sao lưu chỉ được lưu ở nơi bạn chọn — Google Drive (đăng nhập Google, chỉ có quyền truy cập vào các tệp do ứng dụng tạo), iCloud hoặc một thư mục trên thiết bị của bạn. Bản sao lưu được lưu trong tài khoản của chính bạn và nhà phát triển ứng dụng không thể xem. Bản sao lưu của chính thiết bị (sao lưu thiết bị iCloud, sao lưu Android) tuân theo chính sách của công ty tương ứng.</li>
+    <li><strong>Chia sẻ và thẻ khoe</strong> — Khi bạn chạm vào [Chia sẻ], hình ảnh hoặc tệp PDF sẽ được chuyển đến ứng dụng bạn chọn, theo chính sách của ứng dụng đó.</li>
+    <li><strong>Mua hàng</strong> — Việc mua Pro và khôi phục giao dịch mua do App Store hoặc Google Play xử lý theo chính sách quyền riêng tư của họ. Không có thông tin cá nhân nào được chuyển đến nhà phát triển ứng dụng.</li>
+    <li><strong>Dữ liệu sử dụng</strong> — Ứng dụng không thu thập dữ liệu sử dụng, mã nhận dạng quảng cáo hoặc vị trí. Bạn tự chọn thời tiết; ứng dụng không bao giờ hỏi vị trí của bạn.</li>
+    <li><strong>Thay đổi</strong> — Nếu một phiên bản trong tương lai sử dụng Internet theo cách khác, chính sách này sẽ nêu rõ trước những gì được gửi đi và lý do.</li>
+  </ol>
+  <p class="contact">Liên hệ: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← Giới thiệu FeelDiary</a></p>
+</section>
+<section lang="th" data-l="th">
+  <h1>นโยบายความเป็นส่วนตัว</h1>
+  <p class="sub">แอป FeelDiary — iPhone · iPad · Android</p>
+  <p class="date">วันที่มีผลบังคับใช้: 14 พฤศจิกายน 2569</p>
+  <p>แอปบนมือถือก็ไม่เก็บรวบรวมข้อมูลส่วนบุคคลเช่นกัน ไม่มีการส่งข้อมูลใด ๆ ไปยังผู้พัฒนาแอป ไม่มีโฆษณาและไม่มีเครื่องมือวิเคราะห์การใช้งาน</p>
+  <ol>
+    <li><strong>ไดอารี่ โน้ต และรูปภาพ</strong> — ไดอารี่ โน้ต และรูปภาพที่คุณเพิ่มจะถูกจัดเก็บไว้เฉพาะในพื้นที่ของแอปบนอุปกรณ์ของคุณเท่านั้น ข้อมูลเหล่านี้จะออกจากอุปกรณ์ก็ต่อเมื่อคุณเลือกการสำรองข้อมูลหรือการแชร์ตามที่อธิบายไว้ด้านล่าง</li>
+    <li><strong>ไมโครโฟนและการพิมพ์ด้วยเสียง</strong> — แอปจะใช้ไมโครโฟนหลังจากที่คุณแตะปุ่มไมโครโฟนแล้ว และเฉพาะในขณะที่คุณพูดเท่านั้น ไม่มีการเก็บไฟล์เสียงไว้ โดยจะใช้เฉพาะข้อความที่ได้เท่านั้น บน iPhone และ iPad จะใช้การรู้จำเสียงพูดบนอุปกรณ์ และเสียงของคุณจะไม่ถูกส่งไปที่ใดเลย บน Android จะใช้บริการรู้จำเสียงพูดเริ่มต้นของโทรศัพท์ (เช่น Google) และแอปจะขอให้บริการนั้นทำงานแบบออฟไลน์ ทั้งนี้ ขึ้นอยู่กับการตั้งค่าอุปกรณ์ของคุณ บริการนั้นอาจประมวลผลข้อมูลตามนโยบายความเป็นส่วนตัวของตนเอง</li>
+    <li><strong>รูปภาพและกล้อง</strong> — แอปจะอ่านเฉพาะรูปภาพที่คุณเลือก (หรือถ่าย) เพื่อเพิ่มลงในไดอารี่เท่านั้น แอปจะไม่อ่านคลังรูปภาพทั้งหมดของคุณ</li>
+    <li><strong>การดาวน์โหลดฟอนต์</strong> — เมื่อต้องใช้ฟอนต์ที่ไม่ได้มาพร้อมกับแอป (ฟอนต์ลายมือ ฟอนต์ภาษาจีนหรือภาษาญี่ปุ่น ฯลฯ) แอปจะดาวน์โหลดไฟล์ฟอนต์นั้นจาก GitHub หรือ jsDelivr โดยไม่มีการส่งสิ่งใดนอกจากคำขอไฟล์นั้น</li>
+    <li><strong>ไดอารี่ AI (ไม่บังคับ)</strong> — เฉพาะเมื่อคุณแตะ AI ใน [ไดอารี่ AI] เท่านั้น ข้อความที่คุณเขียนจะถูกส่งต่อไปยังแอป AI นั้น (ChatGPT, Claude หรือ Gemini) และประมวลผลตามนโยบายความเป็นส่วนตัวของบริษัทนั้น เนื้อหาไดอารี่ในลิงก์ที่ AI ส่งกลับมา (kys6960.github.io/d/) อยู่หลังเครื่องหมาย # ในที่อยู่ และจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ของเว็บไซต์</li>
+    <li><strong>การสำรองข้อมูล (ไม่บังคับ)</strong> — ข้อมูลสำรองจะถูกบันทึกเฉพาะในที่ที่คุณเลือกเท่านั้น — Google Drive (ลงชื่อเข้าใช้ด้วย Google โดยเข้าถึงได้เฉพาะไฟล์ที่แอปสร้างขึ้น) iCloud หรือโฟลเดอร์ในอุปกรณ์ของคุณ ข้อมูลสำรองจะถูกจัดเก็บไว้ในบัญชีของคุณเอง และผู้พัฒนาแอปไม่สามารถดูได้ การสำรองข้อมูลของตัวอุปกรณ์เอง (การสำรองข้อมูลอุปกรณ์ใน iCloud การสำรองข้อมูล Android) เป็นไปตามนโยบายของบริษัทนั้น</li>
+    <li><strong>การแชร์และการ์ดอวด</strong> — เมื่อคุณแตะ [แชร์] รูปภาพหรือ PDF จะถูกส่งต่อไปยังแอปที่คุณเลือก ตามนโยบายของแอปนั้น</li>
+    <li><strong>การซื้อ</strong> — การซื้อ Pro และการกู้คืนรายการที่ซื้อดำเนินการโดย App Store หรือ Google Play ตามนโยบายความเป็นส่วนตัวของแต่ละบริษัท ไม่มีการส่งข้อมูลส่วนบุคคลใด ๆ ไปยังผู้พัฒนาแอป</li>
+    <li><strong>ข้อมูลการใช้งาน</strong> — แอปไม่เก็บรวบรวมข้อมูลการใช้งาน รหัสระบุตัวตนเพื่อการโฆษณา หรือตำแหน่งที่ตั้ง คุณเป็นผู้เลือกสภาพอากาศเอง และแอปจะไม่ขอตำแหน่งที่ตั้งของคุณ</li>
+    <li><strong>การเปลี่ยนแปลง</strong> — หากเวอร์ชันในอนาคตใช้อินเทอร์เน็ตในลักษณะอื่น นโยบายนี้จะระบุไว้ก่อนว่ามีการส่งข้อมูลใดและเพราะเหตุใด</li>
+  </ol>
+  <p class="contact">ติดต่อ: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← เกี่ยวกับ FeelDiary</a></p>
+</section>
+<section lang="hi" data-l="hi">
+  <h1>गोपनीयता नीति</h1>
+  <p class="sub">FeelDiary ऐप — iPhone · iPad · Android</p>
+  <p class="date">प्रभावी तिथि: 14 नवंबर 2026</p>
+  <p>मोबाइल ऐप भी कोई व्यक्तिगत जानकारी एकत्र नहीं करते। ऐप के डेवलपर को कुछ भी नहीं भेजा जाता। इनमें न कोई विज्ञापन है और न कोई एनालिटिक्स टूल।</p>
+  <ol>
+    <li><strong>डायरी, नोट्स और फ़ोटो</strong> — आपकी डायरी प्रविष्टियाँ, नोट्स और आपके द्वारा जोड़ी गई फ़ोटो केवल आपके डिवाइस पर ऐप के स्थान में सहेजी जाती हैं। ये डिवाइस से बाहर तभी जाती हैं जब आप नीचे बताए गए बैकअप या शेयर को चुनते हैं।</li>
+    <li><strong>माइक्रोफ़ोन और बोलकर लिखना</strong> — माइक्रोफ़ोन का उपयोग केवल तब होता है जब आप माइक्रोफ़ोन बटन पर टैप करने के बाद बोल रहे होते हैं। कोई ऑडियो फ़ाइल नहीं रखी जाती; केवल परिणामस्वरूप बना टेक्स्ट उपयोग होता है। iPhone और iPad पर डिवाइस पर ही होने वाली वाक् पहचान (स्पीच रिकग्निशन) का उपयोग होता है और आपकी आवाज़ कहीं नहीं भेजी जाती। Android पर आपके फ़ोन की डिफ़ॉल्ट वाक् पहचान सेवा (उदाहरण के लिए, Google) का उपयोग होता है और ऐप उससे ऑफ़लाइन काम करने का अनुरोध करता है; आपके डिवाइस की सेटिंग के अनुसार, वह सेवा इसे अपनी गोपनीयता नीति के तहत प्रोसेस कर सकती है।</li>
+    <li><strong>फ़ोटो और कैमरा</strong> — ऐप केवल वही फ़ोटो पढ़ता है जिन्हें आप अपनी डायरी में जोड़ने के लिए चुनते हैं (या खींचते हैं)। यह आपकी पूरी फ़ोटो लाइब्रेरी नहीं पढ़ता।</li>
+    <li><strong>फ़ॉन्ट डाउनलोड</strong> — जब कोई ऐसा फ़ॉन्ट चाहिए होता है जो ऐप में शामिल नहीं है (हस्तलिपि फ़ॉन्ट, चीनी या जापानी फ़ॉन्ट आदि), तो ऐप उस फ़ॉन्ट फ़ाइल को GitHub या jsDelivr से डाउनलोड करता है। उस फ़ाइल के अनुरोध के अलावा कुछ भी नहीं भेजा जाता।</li>
+    <li><strong>AI डायरी (वैकल्पिक)</strong> — केवल तब, जब आप [AI डायरी] में किसी AI पर टैप करते हैं, आपका लिखा टेक्स्ट उस AI ऐप (ChatGPT, Claude या Gemini) को सौंपा जाता है और उस कंपनी की गोपनीयता नीति के तहत प्रोसेस होता है। AI द्वारा लौटाए गए लिंक (kys6960.github.io/d/) में डायरी की सामग्री पते में # के बाद होती है और वेबसाइट के सर्वर को नहीं भेजी जाती।</li>
+    <li><strong>बैकअप (वैकल्पिक)</strong> — बैकअप केवल वहीं सहेजे जाते हैं जहाँ आप चुनते हैं — Google Drive (Google साइन-इन, जिसमें पहुँच केवल ऐप द्वारा बनाई गई फ़ाइलों तक सीमित है), iCloud, या आपके डिवाइस का कोई फ़ोल्डर। बैकअप आपके अपने खाते में सहेजे जाते हैं और ऐप का डेवलपर उन्हें नहीं देख सकता। आपके डिवाइस का अपना बैकअप (iCloud डिवाइस बैकअप, Android बैकअप) उस कंपनी की नीति के अनुसार होता है।</li>
+    <li><strong>शेयर और दिखाने वाले कार्ड</strong> — जब आप [शेयर करें] पर टैप करते हैं, तो चित्र या PDF आपके चुने हुए ऐप को सौंप दिया जाता है, और उस ऐप की नीति लागू होती है।</li>
+    <li><strong>ख़रीदारी</strong> — Pro ख़रीदना और ख़रीदारी बहाल करना App Store या Google Play द्वारा उनकी गोपनीयता नीतियों के तहत संभाला जाता है। ऐप के डेवलपर को कोई व्यक्तिगत जानकारी नहीं दी जाती।</li>
+    <li><strong>उपयोग डेटा</strong> — ऐप उपयोग डेटा, विज्ञापन पहचानकर्ता या स्थान की जानकारी एकत्र नहीं करता। मौसम आप स्वयं चुनते हैं; ऐप कभी आपका स्थान नहीं माँगता।</li>
+    <li><strong>बदलाव</strong> — यदि भविष्य का कोई संस्करण इंटरनेट का किसी अन्य तरीके से उपयोग करता है, तो यह नीति पहले बताएगी कि क्या भेजा जाता है और क्यों।</li>
+  </ol>
+  <p class="contact">संपर्क: <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></p>
+  <p class="back"><a href="../">← FeelDiary के बारे में</a></p>
+</section>
 </main>
 <script>
 document.documentElement.classList.add('js');
 function setLang(l) {
   document.querySelectorAll('main section').forEach(s => { s.hidden = s.dataset.l !== l; });
-  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === l)));
-  document.documentElement.lang = l;
+  document.getElementById('lang').value = l;
+  document.documentElement.lang = (document.querySelector('main section[data-l="' + l + '"]') || {}).lang || l;
   try { localStorage.setItem('fd_lang', l); } catch (e) {}
 }
-document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+document.getElementById('lang').addEventListener('change', e => setLang(e.target.value));
+var CODES = /^(ko|en|ja|zh|zh_Hant|es|pt|fr|de|it|nl|pl|ru|tr|id|vi|th|hi)$/;
 var q = (location.hash || '').replace('#', ''), start = '';
 try { start = localStorage.getItem('fd_lang') || ''; } catch (e) {}
-if (/^(ko|en|ja)$/.test(q)) start = q;
-if (!/^(ko|en|ja)$/.test(start)) { var n = navigator.language || ''; start = /^ko/i.test(n) ? 'ko' : /^ja/i.test(n) ? 'ja' : 'en'; }
+if (CODES.test(q)) start = q;
+if (!CODES.test(start)) {
+  var n = (navigator.language || '').toLowerCase(), b = n.split('-')[0];
+  start = /^zh-(tw|hk|mo|hant)/.test(n) ? 'zh_Hant' : (CODES.test(b) ? b : 'en');
+}
 setLang(start);
 </script>
 </body>
