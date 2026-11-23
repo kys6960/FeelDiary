@@ -4,18 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FeelDiary · 손쉬운일기</title>
-<meta name="description" content="말하거나 짧게 쓰면, 예쁘게 꾸며진 하루 한 쪽 일기가 되는 앱. 광고 없이, 구독 없이, 일기는 내 폰에만.">
-<meta property="og:title" content="FeelDiary · 손쉬운일기">
-<meta property="og:description" content="말하면 꾸며지는 하루 한 쪽 일기">
-<meta property="og:image" content="img/page.webp">
+<meta name="description" content="말하거나 짧게 쓰면, 예쁘게 꾸며진 하루 한 쪽 일기가 되는 앱. 창가의 작은 방과 음악, 광고 없이, 구독 없이, 일기는 내 폰에만.">
+<meta property="og:title" content="FeelDiary: Daily Journal">
+<meta property="og:description" content="Say your day, see it decorated · 말하면 꾸며지는 하루 한 쪽 일기">
+<meta property="og:image" content="https://kys6960.github.io/FeelDiary/img/en/day.webp">
 <link rel="icon" href="favicon.png">
 <link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gaegu:wght@700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-<!-- FeelDiary(손쉬운일기) 앱 소개 누리집 · 11-16 · 원본: C:\src\formkit_app\FeelDiary (FillGrid 누리집 site\ 와 따로) -->
+<!-- FeelDiary(손쉬운일기) 앱 소개 누리집 · 11-16 첫 판 · 11-23 1.0 에 맞춤 (창가 방 · 음악 · 포인트 · Pro 값 · 18개 언어 · 맨 아래 PC 판)
+     원본: C:\src\formkit_app\FeelDiary (FillGrid 누리집 site\ 와 따로) → 저장소 kys6960/FeelDiary 에 덮어 올림
+     한국어 글은 이 파일 안에 · 다른 17개 언어는 i18n/<말>.json (열쇠는 data-k) · 그림은 img/<말>/ (tools/make_feeldiary_site_img.py) -->
 <style>
-/* 레이아웃: 밤하늘 띠(첫 화면) → 크림빛 종이 위에 단계 · 쪽 · 일기장 · 안심 · 무료와 Pro · 묻고 답하기. 폰 화면은 늘 같은 틀 안에. */
+/* 레이아웃: 밤하늘 띠(첫 화면 · 창가 방) → 크림빛 종이 위에 세 걸음 · 창가 · 쪽 · 일기장 · 안심 · 무료와 Pro · 묻고 답하기 → 받기 → PC 판 한 줄. 폰 화면은 늘 같은 틀 안에. */
 :root {
   --night: #1f2347;      /* 앱 아이콘의 밤하늘 */
   --night-2: #2c3166;
@@ -27,6 +29,7 @@
   --line: #e9e1d2;
   --petal: #d9637f;      /* 앱의 분홍 단추 */
   --petal-soft: #fbe6ec;
+  --sun: #f3a95f;        /* 창가 방 노을빛 */
   --lav: #ece7f8;
   --on-night: #f6f1e6;
   --on-night-muted: #b9bcd9;
@@ -34,6 +37,8 @@
   --font-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --font-hand: "Gaegu", "Nanum Pen Script", cursive;
 }
+/* 개구 · 고운바탕에 없는 글자(일 · 중 · 태 · 힌디 · 러)는 몸 글꼴로 — 손글씨 대신 엉뚱한 cursive 가 뜨지 않게 */
+html:is([lang="ja"], [lang^="zh"], [lang="th"], [lang="hi"], [lang="ru"]) { --font-hand: var(--font-body); --font-display: var(--font-body); }
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #17182c; --paper-2: #1d1f38; --ink: #efeaf7; --muted: #a9a4bf; --line: #2e3052;
@@ -43,26 +48,26 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.7 var(--font-body); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.7 var(--font-body); -webkit-font-smoothing: antialiased; overflow-wrap: break-word; }
 img { max-width: 100%; display: block; }
 a { color: var(--petal); }
 .wrap { max-width: 1080px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.3; text-wrap: balance; margin: 0; }
 h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); }
-.eyebrow { font: 700 .8rem/1 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--petal); margin-bottom: 12px; }
+.eyebrow { font: 700 .8rem/1.3 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--petal); margin-bottom: 12px; }
 
 /* 맨 위 띠 */
 .bar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--night) 92%, transparent); backdrop-filter: blur(8px); padding-top: env(safe-area-inset-top, 0px); }
 .bar .wrap { display: flex; align-items: center; gap: 12px; height: 60px; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--on-night); text-decoration: none; font: 700 1.05rem var(--font-display); }
 .brand img { width: 32px; height: 32px; border-radius: 8px; }
-.bar nav { margin-left: auto; display: flex; align-items: center; gap: 18px; }
-.bar nav a.nav { color: var(--on-night-muted); text-decoration: none; font-size: .92rem; }
+.bar nav { margin-left: auto; display: flex; align-items: center; gap: 18px; min-width: 0; }
+.bar nav a.nav { color: var(--on-night-muted); text-decoration: none; font-size: .92rem; white-space: nowrap; }
 .bar nav a.nav:hover { color: var(--on-night); }
-.lang { display: flex; border: 1px solid #ffffff33; border-radius: 999px; overflow: hidden; }
-.lang button { appearance: none; border: 0; background: transparent; color: var(--on-night-muted); font: 500 .82rem var(--font-body); padding: 5px 11px; cursor: pointer; }
-.lang button[aria-pressed="true"] { background: var(--moon); color: var(--night); }
-@media (max-width: 720px) { .bar nav a.nav { display: none; } }
+.lang select { appearance: none; border: 1px solid #ffffff33; border-radius: 999px; background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23b9bcd9' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 11px center;
+  color: var(--on-night); font: 500 .85rem var(--font-body); padding: 5px 28px 5px 12px; cursor: pointer; max-width: 46vw; }
+.lang select option { color: #2a2737; background: #fff; }
+@media (max-width: 900px) { .bar nav a.nav { display: none; } }
 
 /* 첫 화면 — 밤하늘 */
 .hero { background: radial-gradient(1200px 500px at 80% -10%, #3a3f7d 0%, transparent 60%), linear-gradient(180deg, var(--night) 0%, var(--night-2) 100%); color: var(--on-night); position: relative; overflow: hidden; }
@@ -85,14 +90,14 @@ h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); }
 .chip { font-size: .82rem; padding: 4px 12px; border-radius: 999px; background: #ffffff12; border: 1px solid #ffffff22; color: var(--on-night); }
 .hero-phone { align-self: end; justify-self: center; position: relative; }
 .hero-phone .phone { transform: translateY(34px); }
-.moon-note { position: absolute; left: -64px; top: 120px; font: 700 1.25rem/1.25 var(--font-hand); color: var(--moon); transform: rotate(-6deg); max-width: 9em; }
+.moon-note { position: absolute; left: -112px; top: 96px; font: 700 1.25rem/1.25 var(--font-hand); color: var(--moon); transform: rotate(-6deg); max-width: 8em; }
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; padding-block: 44px 0; }
   .moon-note { display: none; }
 }
 
-/* 폰 틀 */
-.phone { width: min(300px, 78vw); aspect-ratio: 386 / 823; border-radius: 38px; padding: 10px; background: #12142a; box-shadow: 0 30px 60px -20px #0009, inset 0 0 0 1.5px #ffffff22; position: relative; }
+/* 폰 틀 (앱 화면 1290×2752) */
+.phone { width: min(300px, 78vw); aspect-ratio: 1290 / 2752; border-radius: 38px; padding: 10px; background: #12142a; box-shadow: 0 30px 60px -20px #0009, inset 0 0 0 1.5px #ffffff22; position: relative; flex: none; }
 .phone img { width: 100%; height: 100%; object-fit: cover; border-radius: 29px; background: #fffcf6; }
 .phone.sm { width: min(240px, 70vw); border-radius: 32px; padding: 8px; }
 .phone.sm img { border-radius: 25px; }
@@ -109,6 +114,15 @@ section { padding-block: 88px; }
 .step p { color: var(--muted); margin: 0; font-size: .95rem; max-width: 22em; }
 @media (max-width: 860px) { .steps { grid-template-columns: 1fr; gap: 56px; } }
 
+/* 창가 방 */
+.window { background: linear-gradient(180deg, var(--paper) 0%, color-mix(in srgb, var(--sun) 14%, var(--paper)) 100%); }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.tile { border: 1px solid var(--line); border-radius: 18px; padding: 24px; background: var(--paper); min-width: 0; }
+.tile .ic { font-size: 1.5rem; margin-bottom: 10px; }
+.tile h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.tile p { margin: 0; color: var(--muted); font-size: .95rem; }
+@media (max-width: 860px) { .trio { grid-template-columns: 1fr; } }
+
 /* 날마다 다른 쪽 */
 .pageband { background: var(--paper-2); }
 .page-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 56px; align-items: center; }
@@ -124,9 +138,12 @@ section { padding-block: 88px; }
 @media (max-width: 860px) { .page-grid { grid-template-columns: 1fr; } }
 
 /* 일기장 */
-.book-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 32px; align-items: center; }
+.book-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 48px; align-items: center; }
 .book-grid ul { margin: 22px 0 0; padding-left: 1.1em; color: var(--muted); }
 .book-grid li { margin: 6px 0; }
+.reward { margin-top: 26px; border: 1px dashed var(--petal); border-radius: 16px; padding: 16px 18px; background: var(--petal-soft); }
+.reward b { display: block; margin-bottom: 4px; }
+.reward p { margin: 0; color: var(--muted); font-size: .95rem; }
 @media (max-width: 860px) { .book-grid { grid-template-columns: 1fr; justify-items: center; } .book-grid > div:first-child { justify-self: stretch; } }
 
 /* 안심 */
@@ -142,16 +159,16 @@ section { padding-block: 88px; }
 @media (max-width: 520px) { .cards { grid-template-columns: 1fr; } }
 
 /* 무료와 Pro */
-.plans { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 20px; align-items: stretch; }
-.plan { border: 1px solid var(--line); border-radius: 18px; padding: 26px; background: var(--paper); }
+.plans { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; align-items: stretch; max-width: 860px; }
+.plan { border: 1px solid var(--line); border-radius: 18px; padding: 26px; background: var(--paper); min-width: 0; }
 .plan.pro { border-color: var(--petal); background: linear-gradient(180deg, var(--petal-soft), var(--paper) 70%); }
-.plan h3 { font-size: 1.4rem; }
+.plan h3 { font-size: 1.4rem; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.plan h3 .price { font: 700 1.05rem var(--font-body); color: var(--petal); }
 .plan .tag { font-size: .85rem; color: var(--muted); margin: 4px 0 16px; }
 .plan ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 9px; }
 .plan li { padding-left: 22px; position: relative; }
 .plan li::before { content: "✓"; position: absolute; left: 0; color: var(--petal); font-weight: 700; }
-.plans .phone { align-self: center; }
-@media (max-width: 980px) { .plans { grid-template-columns: 1fr 1fr; } .plans .phone { display: none; } }
+.plan .note { margin: 16px 0 0; font-size: .82rem; color: var(--muted); }
 @media (max-width: 640px) { .plans { grid-template-columns: 1fr; } }
 
 /* 묻고 답하기 */
@@ -162,15 +179,23 @@ section { padding-block: 88px; }
 .faq summary::after { content: "+"; color: var(--petal); font-size: 1.3rem; line-height: 1; }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { color: var(--muted); margin: 10px 0 0; }
-.faq summary:focus-visible, .lang button:focus-visible, a:focus-visible { outline: 2px solid var(--petal); outline-offset: 3px; border-radius: 6px; }
+.faq summary:focus-visible, .lang select:focus-visible, a:focus-visible { outline: 2px solid var(--petal); outline-offset: 3px; border-radius: 6px; }
 
-/* 끝 */
+/* 받기 */
 .cta { text-align: center; background: var(--paper-2); }
 .cta img.icon { width: 88px; height: 88px; border-radius: 22px; margin: 0 auto 20px; box-shadow: 0 14px 30px -14px #1f234799; }
 .cta p { color: var(--muted); max-width: 32em; margin: 12px auto 26px; }
 .cta .stores { justify-content: center; }
 .cta .store { background: var(--night); border-color: color-mix(in srgb, var(--moon) 45%, transparent); }
-footer { padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); font-size: .86rem; color: var(--muted); }
+
+/* PC 판 — 맨 아래 살짝 */
+.pc { padding-block: 26px; border-top: 1px solid var(--line); }
+.pc .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; font-size: .9rem; color: var(--muted); }
+.pc .ic { font-size: 1.1rem; }
+.pc b { color: var(--ink); font-weight: 700; }
+.pc a { white-space: nowrap; }
+
+footer { padding-block: 22px calc(28px + env(safe-area-inset-bottom, 0px)); font-size: .86rem; color: var(--muted); border-top: 1px solid var(--line); }
 footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; }
 footer a { color: var(--muted); }
 </style>
@@ -182,11 +207,30 @@ footer a { color: var(--muted); }
     <a class="brand" href="#top"><img src="img/icon.png" alt="" width="32" height="32"><span>FeelDiary</span></a>
     <nav>
       <a class="nav" href="#how" data-k="navHow">쓰는 법</a>
+      <a class="nav" href="#window" data-k="navWindow">창가 방</a>
       <a class="nav" href="#safe" data-k="navSafe">안심</a>
       <a class="nav" href="#pro" data-k="navPro">무료와 Pro</a>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" id="lang-ko" data-l="ko" aria-pressed="true">한국어</button>
-        <button type="button" id="lang-en" data-l="en" aria-pressed="false">EN</button>
+      <div class="lang">
+        <select id="lang" aria-label="Language">
+          <option value="ko">한국어</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="zh">简体中文</option>
+          <option value="zh_Hant">繁體中文</option>
+          <option value="es">Español</option>
+          <option value="pt">Português</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="nl">Nederlands</option>
+          <option value="pl">Polski</option>
+          <option value="ru">Русский</option>
+          <option value="tr">Türkçe</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="th">ไทย</option>
+          <option value="hi">हिन्दी</option>
+        </select>
       </div>
     </nav>
   </div>
@@ -198,7 +242,7 @@ footer a { color: var(--muted); }
       <div>
         <div class="eyebrow" style="color:var(--moon)" data-k="heroEyebrow">하루 한 쪽 일기 · 손쉬운일기</div>
         <h1 data-k="heroTitle" data-html>말하면, 오늘이<br><em>예쁜 한 쪽</em>이 돼요</h1>
-        <p class="lead" data-k="heroLead">기분을 고르고 오늘 있었던 일을 말하거나 짧게 쓰세요. 배경지 · 스티커 · 모찌두부 한마디까지, 그날 쪽이 알아서 꾸며져요.</p>
+        <p class="lead" data-k="heroLead">창가의 작은 방에서 오늘 있었던 일을 말하거나 짧게 쓰세요. 배경지 · 스티커 · 모찌두부 한마디까지, 그날 쪽이 알아서 꾸며져요.</p>
         <div class="stores">
           <a class="store" href="#get" aria-disabled="true">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.8 1.2 1.8 2.6 3.1 2.5 1.3-.1 1.7-.8 3.2-.8s1.9.8 3.2.8c1.3 0 2.2-1.3 3-2.5 1-1.4 1.3-2.7 1.4-2.8-.1 0-2.4-.9-2.4-4.2zM14 5.1c.7-.8 1.2-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg>
@@ -209,7 +253,7 @@ footer a { color: var(--muted); }
             <span><small data-k="soonSmall">곧 만나요</small><b>Google Play</b></span>
           </a>
         </div>
-        <p class="soon" data-k="soonNote">아이폰 · 안드로이드에 곧 나와요. 지금은 시험판을 다듬고 있어요.</p>
+        <p class="soon" data-k="soonNote">아이폰 · 안드로이드에 곧 나와요. 지금 마지막 시험을 하고 있어요.</p>
         <div class="chips">
           <span class="chip" data-k="chip1">광고 없음</span>
           <span class="chip" data-k="chip2">구독 없음</span>
@@ -218,8 +262,8 @@ footer a { color: var(--muted); }
         </div>
       </div>
       <div class="hero-phone">
-        <div class="moon-note" data-k="heroNote">오늘 쪽,<br>다 꾸며졌어요!</div>
-        <div class="phone"><img src="img/done.webp" alt="오늘 일기가 꾸며진 FeelDiary 화면" data-alt="altDone" width="386" height="823"></div>
+        <div class="moon-note" data-k="heroNote" data-html>창가에서<br>기다릴게요</div>
+        <div class="phone"><img src="img/ko/room.webp" data-img="room" alt="노을빛 창가에 앉은 지은 — FeelDiary 첫 화면" data-alt="altRoom" width="600" height="1280"></div>
       </div>
     </div>
   </section>
@@ -233,23 +277,38 @@ footer a { color: var(--muted); }
       </div>
       <div class="steps">
         <div class="step">
-          <div class="phone sm"><img src="img/mood.webp" alt="기분과 날씨를 고르는 화면" data-alt="altMood" width="386" height="823" loading="lazy"></div>
+          <div class="phone sm"><img src="img/ko/voice.webp" data-img="voice" alt="마이크를 누르고 오늘 있었던 일을 말하는 화면" data-alt="altVoice" width="600" height="1280" loading="lazy"></div>
           <div class="n">STEP 1</div>
-          <h3 data-k="s1t">기분과 날씨를 골라요</h3>
-          <p data-k="s1p">얼굴 다섯 · 날씨 넷 가운데 눌러요. 안 골라도 괜찮아요, 쓴 글을 보고 짐작해요.</p>
+          <h3 data-k="s1t">말하거나 짧게 써요</h3>
+          <p data-k="s1p">기분과 날씨를 고르고, 큰 마이크를 눌러 친구한테 말하듯 이야기해요. 기기 안에서 글로 바뀌어요. 사진도 3장까지.</p>
         </div>
         <div class="step">
-          <div class="phone sm"><img src="img/write.webp" alt="오늘 있었던 일을 쓰는 화면" data-alt="altWrite" width="386" height="823" loading="lazy"></div>
+          <div class="phone sm"><img src="img/ko/page.webp" data-img="page" alt="꾸며진 오늘 쪽" data-alt="altPage" width="600" height="1280" loading="lazy"></div>
           <div class="n">STEP 2</div>
-          <h3 data-k="s2t">말하거나 짧게 써요</h3>
-          <p data-k="s2p">큰 마이크를 누르고 친구한테 말하듯 이야기해요. 기기 안에서 글로 바뀌어요. 사진도 3장까지.</p>
+          <h3 data-k="s2t">한 쪽이 꾸며져요</h3>
+          <p data-k="s2p">그날 기분과 날씨에 어울리게 배경지 · 사진 자리 · 글씨가 놓이고, 모찌두부가 한마디 남겨요.</p>
         </div>
         <div class="step">
-          <div class="phone sm"><img src="img/done.webp" alt="꾸며진 오늘 쪽" data-alt="altDone" width="386" height="823" loading="lazy"></div>
+          <div class="phone sm"><img src="img/ko/brag.webp" data-img="brag" alt="글이 흐리게 가려진 자랑 카드 화면" data-alt="altBrag" width="600" height="1280" loading="lazy"></div>
           <div class="n">STEP 3</div>
-          <h3 data-k="s3t">한 쪽이 완성돼요</h3>
-          <p data-k="s3p">그날 기분과 날씨에 어울리게 배경지 · 사진 자리 · 글씨가 놓이고, 모찌두부가 한마디 남겨요.</p>
+          <h3 data-k="s3t">남기고 자랑해요</h3>
+          <p data-k="s3p">일기장에 차곡차곡 쌓이고, 자랑 카드나 PDF 로 꺼내요. 자랑 카드의 글은 기본으로 흐리게 가려져요.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="window" id="window">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow" data-k="winEyebrow">하루가 쉬어 가는 곳</div>
+        <h2 data-k="winTitle">앱을 열면, 창가의 작은 방</h2>
+        <p data-k="winLead">일기를 쓰기 전에 잠깐 숨을 고르는 자리예요. 조용한 방이 오늘 하루를 들어 줄 준비를 하고 있어요.</p>
+      </div>
+      <div class="trio">
+        <div class="tile"><div class="ic" aria-hidden="true">🌅</div><h3 data-k="w1t">지금 시간에 맞는 빛</h3><p data-k="w1p">아침엔 맑은 햇살, 저녁엔 노을빛, 밤엔 달빛이 창으로 들어와요.</p></div>
+        <div class="tile"><div class="ic" aria-hidden="true">🎹</div><h3 data-k="w2t">잔잔한 음악</h3><p data-k="w2p">피아노 · 오르골 선율과 잔잔한 자연의 소리가 곁에 있어요. 단추 하나로 소리를 모두 꺼요.</p></div>
+        <div class="tile"><div class="ic" aria-hidden="true">🪑</div><h3 data-k="w3t">함께 앉을 사람</h3><p data-k="w3p">창가에 함께 앉을 사람을 골라요 — 지은이나 도윤.</p></div>
       </div>
     </div>
   </section>
@@ -257,17 +316,17 @@ footer a { color: var(--muted); }
   <section class="pageband">
     <div class="wrap page-grid">
       <figure class="page-fig">
-        <img class="page-shot" src="img/page.webp" alt="FeelDiary 로 꾸민 하루 한 쪽 — 구름 배경지와 창가의 오늘의 창" data-alt="altPage" width="729" height="1032" loading="lazy">
-        <figcaption data-k="pageCap">자랑 카드로 꺼낸 하루 한 쪽 — 글은 이렇게 흐리게 가려져요.</figcaption>
+        <img class="page-shot" src="img/ko/day.webp" data-img="day" alt="사진 세 장과 겨울 배경지로 꾸민 하루 한 쪽" data-alt="altDay" width="760" height="1074" loading="lazy">
+        <figcaption data-k="pageCap">FeelDiary 로 꾸민 하루 한 쪽 (시연용으로 지어낸 일기예요)</figcaption>
       </figure>
       <div>
         <div class="eyebrow" data-k="pageEyebrow">날마다 다른 쪽</div>
         <h2 data-k="pageTitle">오늘의 나에게 어울리는 한 쪽</h2>
         <ul class="points">
           <li><span class="ic" aria-hidden="true">✿</span><div><b data-k="p1t">기분에 맞춘 배경지</b><span data-k="p1p">벚꽃 · 구름 산책 · 아침 햇살 … 그날 결에 어울리는 종이를 골라 깔아요.</span></div></li>
-          <li><span class="ic" aria-hidden="true">◐</span><div><b data-k="p2t">움직이는 오늘의 창</b><span data-k="p2p">창밖 풍경이 계절과 시간에 맞게 바뀌고, 꽃잎 · 낙엽 · 눈이 살며시 움직여요.</span></div></li>
+          <li><span class="ic" aria-hidden="true">◐</span><div><b data-k="p2t">움직이는 오늘의 창</b><span data-k="p2p">배경이 살며시 흐르고, 꽃잎 · 낙엽 · 눈 같은 꾸밈이 움직여요.</span></div></li>
           <li><span class="ic" aria-hidden="true">✎</span><div><b data-k="p3t">모찌두부의 한마디</b><span data-k="p3p">그날 이야기를 읽고 공감 한 줄을 남겨요. 위로가 필요한 날엔 다정하게.</span></div></li>
-          <li><span class="ic" aria-hidden="true">✦</span><div><b data-k="p4t">자랑 카드</b><span data-k="p4p">스토리 9:16 · 일기 쪽 · 이정표 카드로 만들어요. 글은 기본으로 흐리게 가려져 마음 편히 올려요.</span></div></li>
+          <li><span class="ic" aria-hidden="true">Aa</span><div><b data-k="p4t">내 마음대로 배치</b><span data-k="p4p">글과 사진에 맞게 배치를 바꾸고, 제목 글꼴도 골라요. 내 글꼴을 올릴 수도 있어요.</span></div></li>
         </ul>
         <div class="mochi" data-k="mochiLine">“오늘도 잘 버텼어, 내일은 조금 더 가볍게 ♡”</div>
       </div>
@@ -281,14 +340,17 @@ footer a { color: var(--muted); }
         <h2 data-k="bookTitle">쌓일수록 내 것이 되는 일기장</h2>
         <ul>
           <li data-k="b1">표지 6가지 가운데 하나를 고르고 이름을 붙여요.</li>
-          <li data-k="b2">쓴 날은 달력과 표지의 점 띠에 쌓이고, 며칠째 이어 쓰는지 보여요.</li>
+          <li data-k="b2">쓴 날은 달력과 표지에 쌓이고, 며칠째 이어 쓰는지 보여요.</li>
           <li data-k="b3">쪽을 넘기며 보고, 두 손가락으로 크게 봐요. 한 달을 모은 달 쪽도 있어요.</li>
           <li data-k="b4">지난날 빈 칸에도 쓸 수 있고, 고치면 그 쪽이 다시 꾸며져요.</li>
           <li data-k="b5">오늘 · 이번 달 · 전체를 PDF 로 저장하거나 보내요.</li>
         </ul>
+        <div class="reward">
+          <b data-k="ptT">매일 쓰면 쌓이는 포인트</b>
+          <p data-k="ptP">그날 일기를 쓰면 포인트가 쌓이고, 배경지 상점에서 새 배경지를 열어요. 7일 · 30일 · 100일째에는 갖고 싶은 배경지를 직접 골라 가져요.</p>
+        </div>
       </div>
-      <div class="phone sm"><img src="img/cover.webp" alt="일기장 표지 고르기 화면" data-alt="altCover" width="386" height="823" loading="lazy"></div>
-      <div class="phone sm"><img src="img/book.webp" alt="일기장 달력 화면" data-alt="altBook" width="386" height="823" loading="lazy"></div>
+      <div class="phone sm"><img src="img/ko/book.webp" data-img="book" alt="쓴 날에 도장이 찍힌 일기장 달력 화면" data-alt="altBook" width="600" height="1280" loading="lazy"></div>
     </div>
   </section>
 
@@ -317,29 +379,29 @@ footer a { color: var(--muted); }
       </div>
       <div class="plans">
         <div class="plan">
-          <h3 data-k="freeT">무료</h3>
+          <h3><span data-k="freeT">무료</span></h3>
           <div class="tag" data-k="freeTag">일기에 필요한 건 다</div>
           <ul>
             <li data-k="f1">말로 · 글로 일기 쓰기</li>
             <li data-k="f2">일기장 · 달력 · 달 쪽</li>
             <li data-k="f3">PDF 저장 · 보내기</li>
             <li data-k="f4">구글 드라이브 · iCloud 백업</li>
-            <li data-k="f5">배경지 3장 + 쓸수록 쌓이는 포인트로 더 열기</li>
-            <li data-k="f6">배경지에 어울리는 움직이는 꾸밈</li>
+            <li data-k="f5">창가 방과 음악</li>
+            <li data-k="f6">배경지 3장 + 포인트로 여는 배경지</li>
+            <li data-k="f7">배경지에 어울리는 움직이는 꾸밈</li>
           </ul>
         </div>
         <div class="plan pro">
-          <h3>Pro</h3>
+          <h3><span>Pro</span><span class="price">US$3.99</span></h3>
           <div class="tag" data-k="proTag">한 번 구매 · 일기를 더 예쁘게</div>
           <ul>
             <li data-k="r1">모든 배경지 — 그날에 어울리는 것을 알아서</li>
-            <li data-k="r2">업데이트마다 늘어나는 새 배경지도 모두</li>
-            <li data-k="r3">모찌 · 두부 캐릭터 스티커</li>
-            <li data-k="r4">하루 한 번 자동 백업</li>
-            <li data-k="r5">자랑 카드에서 앱 이름 빼기</li>
+            <li data-k="r2">모찌 · 두부 캐릭터 스티커</li>
+            <li data-k="r3">하루 한 번 자동 백업</li>
+            <li data-k="r4">자랑 카드에서 앱 이름 빼기</li>
           </ul>
+          <p class="note" data-k="priceNote">값은 나라마다 스토어에서 조금 달라요.</p>
         </div>
-        <div class="phone sm"><img src="img/pro.webp" alt="Pro 안내 화면" data-alt="altPro" width="386" height="823" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -354,8 +416,9 @@ footer a { color: var(--muted); }
         <details><summary data-k="q1">인터넷이 없어도 쓸 수 있나요?</summary><p data-k="a1">네. 받아쓰기 · 꾸미기 · 일기장 · PDF 는 모두 기기 안에서 돼요. 백업과 AI 다듬기만 인터넷이 필요해요.</p></details>
         <details><summary data-k="q2">말로 하는 게 어색하면요?</summary><p data-k="a2">글자판으로 써도 똑같이 꾸며져요. 한두 줄만 써도 괜찮아요.</p></details>
         <details><summary data-k="q3">폰을 바꾸면 일기는요?</summary><p data-k="a3">설정 탭에서 구글 드라이브나 iCloud 에 백업해 두면, 새 폰에서 '백업에서 되살리기' 로 그대로 가져와요.</p></details>
-        <details><summary data-k="q4">어떤 언어를 지원하나요?</summary><p data-k="a4">한국어 · 영어 · 일본어를 비롯해 18개 언어로 쓸 수 있어요. 모찌두부 한마디도 그 나라 말결로 써 두었어요.</p></details>
-        <details><summary data-k="q5">손쉬운PDF 와는 어떤 사이인가요?</summary><p data-k="a5">FeelDiary 는 PDF 서식 앱 손쉬운PDF(FillGrid)를 만든 곳에서, 하루일기만 쉽고 예쁘게 쓰도록 따로 다듬은 폰 앱이에요.</p></details>
+        <details><summary data-k="q4">새 폰에서도 Pro 를 다시 사야 하나요?</summary><p data-k="a4">아니요. 같은 스토어 계정이면 Pro 화면의 '구입 복원' 으로 다시 열려요. (App Store 와 Google Play 사이에는 옮겨지지 않아요.)</p></details>
+        <details><summary data-k="q5">어떤 언어를 지원하나요?</summary><p data-k="a5">한국어 · 영어 · 일본어를 비롯해 18개 언어로 쓸 수 있어요. 모찌두부 한마디도 그 나라 말결로 써 두었어요.</p></details>
+        <details><summary data-k="q6">궁금한 점이나 고장은 어디에 알리나요?</summary><p data-k="a6" data-html>메일로 보내 주세요 — <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a>. 폰 기종과 무엇을 하다가 그랬는지 적어 주시면 빨리 살펴볼 수 있어요.</p></details>
       </div>
     </div>
   </section>
@@ -373,82 +436,63 @@ footer a { color: var(--muted); }
   </section>
 </main>
 
+<aside class="pc" aria-label="PC">
+  <div class="wrap">
+    <span class="ic" aria-hidden="true">🖥</span>
+    <span data-k="pcText" data-html>윈도 PC 에서는 <b>손쉬운PDF (FillGrid)</b> — 같은 곳에서 만든, 받은 PDF 서식을 칸 단위로 채우고 고치는 프로그램이에요.</span>
+    <a href="https://kys6960.github.io/FillGrid/" data-k="pcLink">PC 판 보러 가기 →</a>
+  </div>
+</aside>
+
 <footer>
   <div class="wrap">
-    <span>© 2026 FeelDiary · 손쉬운일기</span>
+    <span>© 2026 FeelDiary</span>
     <a href="privacy/" data-k="privacy">개인정보 처리방침</a>
-    <a href="https://kys6960.github.io/FillGrid/" data-k="fillgrid">손쉬운PDF (FillGrid)</a>
-    <span>ksr6960@daum.net</span>
+    <span><span data-k="contact">문의</span> · <a href="mailto:ksr6960@daum.net">ksr6960@daum.net</a></span>
   </div>
 </footer>
 
 <script>
-const EN = {
-  navHow: 'How it works', navSafe: 'Privacy', navPro: 'Free & Pro',
-  heroEyebrow: 'One page a day · FeelDiary',
-  heroTitle: 'Say your day.<br><em>See it decorated.</em>',
-  heroLead: 'Pick your mood, then talk or jot down what happened. Backgrounds, stickers and a little note from Mochi & Dubu decorate the page for you.',
-  soonSmall: 'Coming soon', soonNote: 'Coming to iPhone and Android soon. We are polishing the beta now.',
-  chip1: 'No ads', chip2: 'No subscription', chip3: 'Your diary stays on your phone', chip4: 'Offline dictation',
-  heroNote: "Today's page<br>is ready!",
-  howEyebrow: 'A minute a day', howTitle: 'The app decorates. You just tell your story.',
-  howLead: 'If decorating felt like work and keeping a diary was hard to stick with, it takes three steps.',
-  s1t: 'Pick a mood and the weather', s1p: 'Five faces, four kinds of weather. Skip it if you like — we guess from what you write.',
-  s2t: 'Talk or type a few lines', s2p: 'Tap the big mic and talk like you would to a friend. It turns into text on your device. Up to 3 photos.',
-  s3t: 'Your page is done', s3p: 'A background, photo spots and handwriting that suit the day, plus a note from Mochi & Dubu.',
-  pageCap: 'A day page taken out as a brag card — your text is blurred like this.',
-  pageEyebrow: 'A different page every day', pageTitle: 'A page that fits who you were today',
-  p1t: 'Backgrounds that match your mood', p1p: 'Cherry blossoms, cloud walks, morning sun… the paper is chosen to suit the day.',
-  p2t: "Today's window comes alive", p2p: 'The view changes with the season and time, and petals, leaves or snow drift by.',
-  p3t: 'A note from Mochi & Dubu', p3p: 'They read your day and leave one line of empathy — gentle on the hard days.',
-  p4t: 'Brag cards', p4p: 'Make a 9:16 story, a diary page or a milestone card. Text is blurred by default, so sharing feels safe.',
-  mochiLine: '“You made it through today. Lighter tomorrow ♡”',
-  bookEyebrow: 'Your own diary', bookTitle: 'A diary that becomes more yours every day',
-  b1: 'Choose one of 6 covers and give your diary a name.', b2: 'Every day you write adds a dot to the calendar and the cover, and your streak shows.',
-  b3: 'Flip through pages and pinch to zoom. A monthly page gathers the whole month.', b4: 'Fill in a missed day, or edit an entry and the page is decorated again.',
-  b5: 'Save or send today, this month or the whole diary as a PDF.',
-  safeEyebrow: 'Peace of mind', safeTitle: 'Because a diary is just for you', safeLead: 'FeelDiary never sends your diary anywhere — not even to us.',
-  c1t: 'Offline dictation', c1p: 'Your voice becomes text right on the device. Recordings are never uploaded.',
-  c2t: 'Stays on your phone', c2p: 'No ads, no analytics, and no server that reads your diary.',
-  c3t: 'Back up to your own cloud', c3p: 'Google Drive on Android, iCloud on iPhone — restore on a new phone.',
-  c4t: 'AI only when you choose', c4p: 'If you like, polish an entry with your own ChatGPT, Claude or Gemini. Everything works without it.',
-  proEyebrow: 'Free & Pro', proTitle: 'Plenty for free. Pro is a one-time purchase.', proLead: 'Not a subscription. Buy once and keep it on every device with the same store account.',
-  freeT: 'Free', freeTag: 'Everything a diary needs',
-  f1: 'Write by voice or by typing', f2: 'Diary, calendar and monthly page', f3: 'Save and send as PDF', f4: 'Google Drive and iCloud backup',
-  f5: '3 backgrounds, plus more unlocked with points you earn by writing', f6: 'Moving decorations that suit each background',
-  proTag: 'Buy once · make it even prettier',
-  r1: 'Every background, picked to suit the day', r2: 'New backgrounds added with every update', r3: 'Mochi & Dubu character stickers', r4: 'Automatic daily backup', r5: 'Remove the app name from brag cards',
-  faqEyebrow: 'FAQ', faqTitle: 'Questions',
-  q1: 'Does it work without the internet?', a1: 'Yes. Dictation, decorating, your diary and PDF all work on the device. Only backup and AI polishing need the internet.',
-  q2: 'What if talking feels awkward?', a2: 'Type instead — the page is decorated just the same. A line or two is enough.',
-  q3: 'What happens when I change phones?', a3: "Back up to Google Drive or iCloud from Settings, then use 'Restore from backup' on the new phone.",
-  q4: 'Which languages are supported?', a4: "18 languages, including English, Korean and Japanese. Mochi & Dubu's notes are written in each language's own voice.",
-  q5: 'How is it related to FillGrid?', a5: 'FeelDiary is made by the team behind FillGrid, the PDF form app — a phone app shaped just for an easy, pretty daily diary.',
-  ctaTitle: 'One page a day, starting today', ctaLead: 'Coming soon to the App Store and Google Play. We will put the download buttons right here on launch day.',
-  privacy: 'Privacy policy', fillgrid: 'FillGrid (PDF app)',
-  altDone: "Today's decorated diary page in FeelDiary", altMood: 'Choosing a mood and the weather', altWrite: "Writing about today's events",
-  altPage: 'A decorated diary page with a cloud background and a window scene', altCover: 'Choosing a diary cover', altBook: 'Diary calendar', altPro: 'Pro screen',
-};
+// 언어: 주소 꼬리(#ja) > 고른 것(localStorage fd_lang · 처리방침 쪽과 같은 열쇠) > 브라우저 언어 > 영어
+// 한국어 글은 이 파일 안의 글 그대로 · 다른 언어는 i18n/<말>.json (빠진 열쇠는 영어 → 한국어 순으로 채움)
+const CODES = ['ko','en','ja','zh','zh_Hant','es','pt','fr','de','it','nl','pl','ru','tr','id','vi','th','hi'];
 const KO = {};
 document.querySelectorAll('[data-k]').forEach(el => { KO[el.dataset.k] = el.hasAttribute('data-html') ? el.innerHTML : el.textContent; });
 document.querySelectorAll('img[data-alt]').forEach(el => { KO[el.dataset.alt] = el.alt; });
-function setLang(l) {
-  const t = l === 'en' ? EN : KO;
-  document.documentElement.lang = l;
+KO.docTitle = document.title;
+const cache = { ko: KO };
+async function dict(l) {
+  if (cache[l]) return cache[l];
+  try { const r = await fetch('i18n/' + l + '.json'); if (r.ok) cache[l] = await r.json(); } catch (e) {}
+  return cache[l] || null;
+}
+async function setLang(l) {
+  if (!CODES.includes(l)) l = 'en';
+  let t = await dict(l);
+  if (!t) { l = 'ko'; t = KO; }   // 글 파일을 못 읽으면 (파일로 연 경우 등) 한국어 그대로 — 알리고 넘어간다
+  const en = l === 'ko' ? KO : (await dict('en')) || {};
+  const pick = k => t[k] != null ? t[k] : (en[k] != null ? en[k] : KO[k]);
+  document.documentElement.lang = l === 'zh_Hant' ? 'zh-Hant' : (l === 'zh' ? 'zh-Hans' : l);
   document.querySelectorAll('[data-k]').forEach(el => {
-    const v = t[el.dataset.k]; if (v == null) return;
+    const v = pick(el.dataset.k); if (v == null) return;
     if (el.hasAttribute('data-html')) el.innerHTML = v; else el.textContent = v;
   });
-  document.querySelectorAll('img[data-alt]').forEach(el => { const v = t[el.dataset.alt]; if (v) el.alt = v; });
-  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === l)));
-  document.title = l === 'en' ? 'FeelDiary · Daily Journal' : 'FeelDiary · 손쉬운일기';
+  document.querySelectorAll('img[data-alt]').forEach(el => { const v = pick(el.dataset.alt); if (v) el.alt = v; });
+  document.querySelectorAll('img[data-img]').forEach(el => { el.src = 'img/' + l + '/' + el.dataset.img + '.webp'; });
+  document.title = pick('docTitle');
+  document.getElementById('lang').value = l;
   try { localStorage.setItem('fd_lang', l); } catch (e) {}
 }
-document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
-document.querySelectorAll('a[aria-disabled="true"]').forEach(a => a.addEventListener('click', e => { if (a.getAttribute('href') === '#get' && location.hash === '#get') e.preventDefault(); }));
-let start = 'ko';
-try { start = localStorage.getItem('fd_lang') || ''; } catch (e) { start = ''; }
-if (!start) start = /^ko/i.test(navigator.language || '') ? 'ko' : 'en';
+document.getElementById('lang').addEventListener('change', e => setLang(e.target.value));
+document.querySelectorAll('a[aria-disabled="true"]').forEach(a => a.addEventListener('click', e => { if (location.hash === '#get') e.preventDefault(); }));
+let start = '';
+const q = (location.hash || '').slice(1);
+try { start = localStorage.getItem('fd_lang') || ''; } catch (e) {}
+if (CODES.includes(q)) start = q;
+if (!CODES.includes(start)) {
+  const n = (navigator.language || '').toLowerCase(), b = n.split('-')[0];
+  start = /^zh-(tw|hk|mo|hant)/.test(n) ? 'zh_Hant' : (CODES.includes(b) ? b : 'en');
+}
 if (start !== 'ko') setLang(start);
 </script>
 </body>
