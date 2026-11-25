@@ -462,6 +462,7 @@ footer a { color: var(--muted); }
 <script>
 // 언어: 주소 꼬리(#ja) > 고른 것(localStorage fd_lang · 처리방침 쪽과 같은 열쇠) > 브라우저 언어 > 영어
 // 한국어 글은 이 파일 안의 글 그대로 · 다른 언어는 i18n/<말>.json (빠진 열쇠는 영어 → 한국어 순으로 채움)
+const VIDEO = { ko: '30초 영상 보기', en: 'Watch the 30-sec video', ja: '30秒動画を見る', zh: '观看30秒视频', id: 'Tonton video 30 detik' };
 const CODES = ['ko','en','ja','zh','zh_Hant','es','pt','fr','de','it','nl','pl','ru','tr','id','vi','th','hi'];
 const KO = {};
 document.querySelectorAll('[data-k]').forEach(el => { KO[el.dataset.k] = el.hasAttribute('data-html') ? el.innerHTML : el.textContent; });
@@ -487,7 +488,9 @@ async function setLang(l) {
   document.querySelectorAll('img[data-alt]').forEach(el => { const v = pick(el.dataset.alt); if (v) el.alt = v; });
   document.querySelectorAll('img[data-img]').forEach(el => { el.src = 'img/' + l + '/' + el.dataset.img + '.webp'; });
   document.title = pick('docTitle');
-  document.getElementById('watch').hidden = l !== 'ko';   // 영상은 지금 한국어만
+  const w = document.getElementById('watch'), wl = VIDEO[l];   // 30초 영상이 있는 말만 단추 (tools/feeldiary_video_site.py 로 만든 말과 같게)
+  w.hidden = !wl;
+  if (wl) { w.href = l === 'ko' ? 'video/' : 'video/' + l + '/'; w.lastChild.textContent = wl; }
   document.getElementById('lang').value = l;
   try { localStorage.setItem('fd_lang', l); } catch (e) {}
 }

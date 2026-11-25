@@ -6,14 +6,14 @@
 <title>손쉬운일기 · 30초 소개 영상</title>
 <meta name="description" content="1월엔 예쁜 다이어리를 사요. 근데 3월부터는… 이젠 폰에 대고 말만 해요. 말하면 꾸며지는 하루 한 쪽 일기, 손쉬운일기.">
 <meta property="og:type" content="video.other">
-<meta property="og:site_name" content="FeelDiary · 손쉬운일기">
+<meta property="og:site_name" content="FeelDiary">
 <meta property="og:title" content="손쉬운일기 · 30초 소개 영상">
 <meta property="og:description" content="말하면 꾸며지는 하루 한 쪽 일기 · 광고 없음 · 구독 없음 · 일기는 내 폰에 저장">
 <meta property="og:url" content="https://kys6960.github.io/FeelDiary/video/">
-<meta property="og:image" content="https://kys6960.github.io/FeelDiary/video/og_ko.jpg">
+<meta property="og:image" content="https://kys6960.github.io/FeelDiary/video/og_ko.jpg?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:video" content="https://kys6960.github.io/FeelDiary/video/feeldiary_ko.mp4">
+<meta property="og:video" content="https://kys6960.github.io/FeelDiary/video/feeldiary_ko.mp4?v=3">
 <meta property="og:video:type" content="video/mp4">
 <meta property="og:video:width" content="1080">
 <meta property="og:video:height" content="1920">
@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
-<!-- 손쉬운일기 30초 소개 영상 쪽 (11-24 · 판 2 한국어) — 원본 C:\src\formkit_app\FeelDiary\video · 영상 video\out\feel30_v2_ko 에서 복사 -->
+<!-- FeelDiary 30초 소개 영상 쪽 — tools/feeldiary_video_site.py 가 만든다 (손으로 고치지 말 것 · 틀은 tools/feeldiary_video_page.html) -->
 <style>
 :root {
   --night: #1f2347; --night-2: #2c3166; --moon: #f1d79e;
@@ -72,6 +72,8 @@ video { width: 100%; height: 100%; display: block; object-fit: cover; background
   padding: 13px 26px; border-radius: 999px;
 }
 .cta:focus-visible, .play:focus-visible { outline: 3px solid var(--moon); outline-offset: 3px; }
+.langs { margin-top: 22px; color: var(--on-night-muted); font-size: 13px; text-align: center; }
+.langs a { color: var(--on-night); }
 </style>
 </head>
 <body>
@@ -81,15 +83,14 @@ video { width: 100%; height: 100%; display: block; object-fit: cover; background
 </header>
 
 <div class="frame">
-  <video id="v" src="feeldiary_ko.mp4?v=2" poster="poster_ko.jpg?v=2" preload="metadata" playsinline controls></video>
+  <video id="v" src="feeldiary_ko.mp4?v=3" poster="poster_ko.jpg?v=3" preload="metadata" playsinline controls></video>
   <button class="play" id="p" aria-label="영상 재생"></button>
 </div>
 <p class="sound">🔊 소리를 켜고 보세요 · 30초</p>
 
-<ul class="points">
-  <li>광고 없음</li><li>구독 없음</li><li>일기는 내 폰에 저장</li>
-</ul>
+<ul class="points"><li>광고 없음</li><li>구독 없음</li><li>일기는 내 폰에 저장</li></ul>
 <a class="cta" href="../">앱 더 알아보기</a>
+<p class="langs">다른 언어: <a href="../video/en/" lang="en">English</a> · <a href="../video/ja/" lang="ja">日本語</a> · <a href="../video/zh/" lang="zh-Hans">简体中文</a> · <a href="../video/id/" lang="id">Bahasa Indonesia</a></p>
 
 <script>
 const v = document.getElementById('v'), p = document.getElementById('p');
